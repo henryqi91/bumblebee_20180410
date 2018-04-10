@@ -1,0 +1,969 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a92bcc57-e681-4efd-9e20-f391343c48c2" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+    <splitter split-orientation="horizontal" split-proportion="0.5144058">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="plane_controller.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/plane_controller.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="590">
+                  <caret line="107" column="32" lean-forward="true" selection-start-line="107" selection-start-column="32" selection-end-line="107" selection-end-column="32" />
+                  <folding>
+                    <element signature="e#0#70#0" expanded="true" />
+                    <element signature="e#2701#2731#0" expanded="false" />
+                    <element signature="e#3080#3144#0" expanded="false" />
+                    <element signature="e#4059#4099#0" expanded="false" />
+                    <element signature="e#4854#5242#0" expanded="false" />
+                    <element signature="e#5307#7049#0" expanded="false" />
+                    <element signature="e#5886#5984#0" expanded="false" />
+                    <element signature="e#7114#7327#0" expanded="false" />
+                    <element signature="e#7392#8655#0" expanded="false" />
+                    <element signature="e#8738#8812#0" expanded="false" />
+                    <element signature="e#8896#8972#0" expanded="false" />
+                    <element signature="e#9036#9078#0" expanded="false" />
+                    <element signature="e#9141#9182#0" expanded="false" />
+                    <element signature="e#9249#9639#0" expanded="false" />
+                    <element signature="e#9707#10084#0" expanded="false" />
+                    <element signature="e#10154#10369#0" expanded="false" />
+                    <element signature="e#10440#10658#0" expanded="false" />
+                    <element signature="e#10733#10873#0" expanded="false" />
+                    <element signature="e#10951#11088#0" expanded="false" />
+                    <element signature="e#11164#11319#0" expanded="false" />
+                    <element signature="e#11398#11479#0" expanded="false" />
+                    <element signature="e#11569#11743#0" expanded="false" />
+                    <element signature="e#11858#11971#0" expanded="false" />
+                    <element signature="e#12808#12831#0" expanded="false" />
+                    <element signature="e#16749#17097#0" expanded="false" />
+                    <element signature="e#16766#16813#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="signal_center.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/signal_center.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1066">
+                  <caret line="58" column="36" lean-forward="false" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
+                  <folding>
+                    <element signature="e#111#146#0" expanded="false" />
+                    <element signature="e#1829#1844#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="plane.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/plane/plane.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="338">
+                  <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#20#55#0" expanded="true" />
+                    <element signature="e#227#508#0" expanded="false" />
+                    <element signature="e#7257#7881#0" expanded="false" />
+                    <element signature="e#7922#8145#0" expanded="false" />
+                    <element signature="e#8185#8245#0" expanded="false" />
+                    <element signature="e#8283#8537#0" expanded="false" />
+                    <element signature="e#8598#8777#0" expanded="false" />
+                    <element signature="e#9469#9484#0" expanded="false" />
+                    <element signature="e#9992#10546#0" expanded="false" />
+                    <element signature="e#10713#10749#0" expanded="false" />
+                    <element signature="e#11594#11805#0" expanded="false" />
+                    <element signature="e#15780#15793#0" expanded="false" />
+                    <marker date="1516689448731" expanded="true" signature="3163:3890" ph="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="signal_center.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/signal_center.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1040">
+                  <caret line="57" column="32" lean-forward="false" selection-start-line="57" selection-start-column="32" selection-end-line="57" selection-end-column="32" />
+                  <folding>
+                    <element signature="e#111#146#0" expanded="false" />
+                    <element signature="e#1829#1844#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="plane_controller.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/plane_controller.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="346">
+                  <caret line="358" column="19" lean-forward="false" selection-start-line="358" selection-start-column="19" selection-end-line="358" selection-end-column="19" />
+                  <folding>
+                    <element signature="e#0#70#0" expanded="true" />
+                    <element signature="e#2701#2731#0" expanded="false" />
+                    <element signature="e#3080#3144#0" expanded="false" />
+                    <element signature="e#4059#4099#0" expanded="false" />
+                    <element signature="e#4854#5242#0" expanded="false" />
+                    <element signature="e#5307#7049#0" expanded="false" />
+                    <element signature="e#5886#5984#0" expanded="false" />
+                    <element signature="e#7114#7327#0" expanded="false" />
+                    <element signature="e#7392#8655#0" expanded="false" />
+                    <element signature="e#8738#8812#0" expanded="false" />
+                    <element signature="e#8896#8972#0" expanded="false" />
+                    <element signature="e#9036#9078#0" expanded="false" />
+                    <element signature="e#9141#9182#0" expanded="false" />
+                    <element signature="e#9249#9639#0" expanded="false" />
+                    <element signature="e#9707#10084#0" expanded="false" />
+                    <element signature="e#10154#10369#0" expanded="false" />
+                    <element signature="e#10440#10658#0" expanded="false" />
+                    <element signature="e#10733#10873#0" expanded="false" />
+                    <element signature="e#10951#11088#0" expanded="false" />
+                    <element signature="e#11164#11319#0" expanded="false" />
+                    <element signature="e#11398#11479#0" expanded="false" />
+                    <element signature="e#11569#11743#0" expanded="false" />
+                    <element signature="e#11858#11971#0" expanded="false" />
+                    <element signature="e#12808#12831#0" expanded="false" />
+                    <element signature="e#16749#17097#0" expanded="false" />
+                    <element signature="e#16766#16813#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="plane.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/plane/plane.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="3068">
+                  <caret line="127" column="76" lean-forward="false" selection-start-line="127" selection-start-column="76" selection-end-line="127" selection-end-column="76" />
+                  <folding>
+                    <element signature="e#20#55#0" expanded="true" />
+                    <element signature="e#227#508#0" expanded="false" />
+                    <element signature="e#7257#7881#0" expanded="false" />
+                    <element signature="e#7922#8145#0" expanded="false" />
+                    <element signature="e#8185#8245#0" expanded="false" />
+                    <element signature="e#8283#8537#0" expanded="false" />
+                    <element signature="e#8598#8777#0" expanded="false" />
+                    <element signature="e#9469#9484#0" expanded="false" />
+                    <element signature="e#9992#10546#0" expanded="false" />
+                    <element signature="e#10713#10749#0" expanded="false" />
+                    <element signature="e#11594#11805#0" expanded="false" />
+                    <element signature="e#15780#15793#0" expanded="false" />
+                    <marker date="1516689448731" expanded="true" signature="3163:3890" ph="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="lv_reader.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/ple/games/utils/lv_reader.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="780">
+                  <caret line="60" column="49" lean-forward="false" selection-start-line="60" selection-start-column="49" selection-end-line="60" selection-end-column="49" />
+                  <folding>
+                    <element signature="e#205#830#0" expanded="false" />
+                    <element signature="e#860#1382#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>parameter_div</find>
+      <find>torque_data_avg</find>
+      <find>on_</find>
+      <find>running</find>
+      <find>shoot(</find>
+      <find>enemies1_down</find>
+      <find>Enemy</find>
+      <find>player_pox_y</find>
+      <find>_reader</find>
+      <find>colli</find>
+      <find>recording_sta</find>
+      <find>lock</find>
+      <find>is_key</find>
+      <find>player_life ==</find>
+      <find>player_life</find>
+      <find>enemy_speed</find>
+      <find>speed</find>
+      <find>frequenc</find>
+      <find>reset</find>
+      <find>score</find>
+      <find>self.score</find>
+      <find>self.clock</find>
+      <find>enemy</find>
+      <find>time_</find>
+      <find>clock</find>
+      <find>is_ti</find>
+      <find>data_record</find>
+      <find>fall_speed</find>
+      <find>0</find>
+      <find>obst_fall_speed</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$USER_HOME$/Anaconda3/Lib/site-packages/ple-0.0.1-py3.5.egg/ple/games/catcher_discrete2.py" />
+        <option value="$PROJECT_DIR$/../光流/数据/ipython_test/processor_script.py" />
+        <option value="$PROJECT_DIR$/ple/algorithms.py" />
+        <option value="$PROJECT_DIR$/algorithms.py" />
+        <option value="$PROJECT_DIR$/ui_catcher_discrete_controller.py" />
+        <option value="$PROJECT_DIR$/ple/games/utils/udp_comm_sender_new.py" />
+        <option value="$PROJECT_DIR$/ple/games/catcher_discrete2.py" />
+        <option value="$PROJECT_DIR$/catcher_discrete2.py" />
+        <option value="$PROJECT_DIR$/ui_plane_controller.py" />
+        <option value="$PROJECT_DIR$/plane/plane.py" />
+        <option value="$PROJECT_DIR$/signal_center.py" />
+        <option value="$PROJECT_DIR$/ple/games/utils/lv_reader.py" />
+        <option value="$PROJECT_DIR$/catcher_controller.py" />
+        <option value="$PROJECT_DIR$/plane_controller.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource ProjectPane="true" />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bumblebee_20180410" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bumblebee_20180410" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="bumblebee_2017_09_27" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="bumblebee_2017_09_27" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.plane_controller">
+    <configuration default="false" name="catcher_controller" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\bumblebee\Anaconda3\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="bumblebee_2017_09_27" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/catcher_controller.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="catcher_controller (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\bumblebee\Anaconda3\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../bumblebee_20171226_backup" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="bumblebee_2017_09_27" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../bumblebee_20171226_backup/catcher_controller.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="data_collector" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\bumblebee\Anaconda3\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../others/data_acquire_0615_past" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="bumblebee_2017_09_27" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../others/data_acquire_0615_past/data_collector.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="plane_controller" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\bumblebee\Anaconda3\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="bumblebee_2017_09_27" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/plane_controller.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="plane" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\bumblebee\Anaconda3\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/plane" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="bumblebee_2017_09_27" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/plane/plane.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="CompoundRunConfigurationType" factoryName="Compound Run Configuration">
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\bumblebee\Anaconda3\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="bumblebee_2017_09_27" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="C:\Users\bumblebee\Anaconda3\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <myArguments>
+        <array />
+      </myArguments>
+      <myRunOnlyEnvs>
+        <array />
+      </myRunOnlyEnvs>
+      <module name="bumblebee_2017_09_27" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="C:\Users\bumblebee\Anaconda3\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="bumblebee_2017_09_27" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="C:\Users\bumblebee\Anaconda3\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="bumblebee_2017_09_27" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="C:\Users\bumblebee\Anaconda3\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="bumblebee_2017_09_27" />
+      <option name="_new_pattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="C:\Users\bumblebee\Anaconda3\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="bumblebee_2017_09_27" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method />
+    </configuration>
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Python.catcher_controller" />
+      <item index="1" class="java.lang.String" itemvalue="Python.catcher_controller (1)" />
+      <item index="2" class="java.lang.String" itemvalue="Python.data_collector" />
+      <item index="3" class="java.lang.String" itemvalue="Python.plane_controller" />
+      <item index="4" class="java.lang.String" itemvalue="Python.plane" />
+    </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.plane_controller" />
+        <item index="1" class="java.lang.String" itemvalue="Python.catcher_controller" />
+        <item index="2" class="java.lang.String" itemvalue="Python.plane" />
+        <item index="3" class="java.lang.String" itemvalue="Python.data_collector" />
+        <item index="4" class="java.lang.String" itemvalue="Python.catcher_controller (1)" />
+      </list>
+    </recent_temporary>
+    <configuration default="true" type="tests" factoryName="Attests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="bumblebee_2017_09_27" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a92bcc57-e681-4efd-9e20-f391343c48c2" name="Default" comment="" />
+      <created>1506479305152</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1506479305152</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13177083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25608343" sideWeight="0.3920792" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28541225" sideWeight="0.60792077" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27378437" sideWeight="0.61927086" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17230444" sideWeight="0.49791667" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/catcher_controller.py</url>
+          <line>1130</line>
+          <option name="timeStamp" value="157" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/catcher_controller.py</url>
+          <line>1492</line>
+          <option name="timeStamp" value="221" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/catcher_controller.py</url>
+          <line>1465</line>
+          <option name="timeStamp" value="232" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/catcher_controller.py</url>
+          <line>1309</line>
+          <option name="timeStamp" value="249" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/catcher_controller.py</url>
+          <line>1324</line>
+          <option name="timeStamp" value="256" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/catcher_controller.py</url>
+          <line>1514</line>
+          <option name="timeStamp" value="257" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/catcher_controller.py</url>
+          <line>996</line>
+          <option name="timeStamp" value="278" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/catcher_controller.py</url>
+          <line>935</line>
+          <option name="timeStamp" value="279" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/catcher_controller.py</url>
+          <line>250</line>
+          <option name="timeStamp" value="343" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/plane_controller.py</url>
+          <line>136</line>
+          <option name="timeStamp" value="368" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/plane_controller.py</url>
+          <line>221</line>
+          <option name="timeStamp" value="375" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/plane_controller.py</url>
+          <line>176</line>
+          <option name="timeStamp" value="378" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/plane/plane.py</url>
+          <line>22</line>
+          <option name="timeStamp" value="390" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/plane_controller.py</url>
+          <line>326</line>
+          <option name="timeStamp" value="391" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+      <option name="time" value="394" />
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="left_light_stream" />
+        <watch expression="right_light_stream" />
+        <watch expression="self.data" />
+        <watch expression="self.is_recording" />
+        <watch expression="file_name" />
+        <watch expression="local_time" />
+        <watch expression="time_format" />
+        <watch expression="file_name" />
+        <watch expression="self.is_first_time" />
+        <watch expression="self.is_recording" />
+        <watch expression="curr_data" />
+        <watch expression="self.player_x" />
+        <watch expression="self.catcher_game.is_RL_train" />
+        <watch expression="self.catcher_game.is_RL_train" />
+        <watch expression="avg_x_move" />
+        <watch expression="right_bound" />
+        <watch expression="self.case" />
+        <watch expression="self.right_bound" />
+        <watch expression="self.step" />
+        <watch expression="avg_x_move" />
+        <watch expression="self.left_bound" />
+        <watch expression="self.step" />
+        <watch expression="self.is_simple_AI_clicked" />
+        <watch expression="self.is_paused" />
+        <watch expression="self.is_simple_AI" />
+        <watch expression="self.is_left" />
+        <watch expression="self.data" />
+        <watch expression="self.data" />
+        <watch expression="self.plane_img" />
+        <watch expression="self.is_running" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://E:/PyGame-Learning-Environment-master/ple/games/catcher_discrete.py" />
+    <entry file="file://E:/PyGame-Learning-Environment-master/ple/ple.py" />
+    <entry file="file://C:/Anaconda3/Lib/multiprocessing/process.py" />
+    <entry file="file://C:/Anaconda3/Lib/multiprocessing/spawn.py" />
+    <entry file="file://E:/PyGame-Learning-Environment-master/ple/games/utils/udp_comm_sender_new.py" />
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/ple-0.0.1-py3.5.egg/ple/games/utils/udp_comm_sender_new.py" />
+    <entry file="file://G:/bumblebee_20171011/catcher_controller.py" />
+    <entry file="file://E:/PyGame-Learning-Environment-master/ple/games/utils/lv_reader.py" />
+    <entry file="file://C:/Anaconda3/Lib/codecs.py" />
+    <entry file="file://E:/PyGame-Learning-Environment-master/ple/games/catcher_discrete2.py" />
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/ple-0.0.1-py3.5.egg/ple/games/utils/lv_reader.py" />
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/pygame/__init__.py" />
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/-258338316/pygame/draw.py" />
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/ple-0.0.1-py3.5.egg/ple/games/catcher_discrete2.py" />
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-1282051629/pygame/transform.py" />
+    <entry file="file://$PROJECT_DIR$/../test.py" />
+    <entry file="file://$PROJECT_DIR$/../光流/数据/ipython_test/processor_script.py" />
+    <entry file="file://$PROJECT_DIR$/ple/algorithms.py" />
+    <entry file="file://$PROJECT_DIR$/ui_catcher_discrete_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="359" column="62" lean-forward="false" selection-start-line="359" selection-start-column="62" selection-end-line="359" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/algorithms.py" />
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_bundle/pydev_monkey.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="588" column="0" lean-forward="false" selection-start-line="588" selection-start-column="0" selection-end-line="588" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/-258338316/_socket.py" />
+    <entry file="file://$PROJECT_DIR$/ple/ple.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3175">
+          <caret line="198" column="0" lean-forward="true" selection-start-line="198" selection-start-column="0" selection-end-line="198" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../data_acquire_0629/data_collector_sub.py" />
+    <entry file="file://$PROJECT_DIR$/../others/data_acquire_0615_past/data_collector.py" />
+    <entry file="file://$PROJECT_DIR$/../bumblebee_20171226_backup/catcher_controller.py" />
+    <entry file="file://$PROJECT_DIR$/../data_acquire_0628_PUB/data_collector_sub.py" />
+    <entry file="file://$PROJECT_DIR$/ple/games/utils/udp_comm_sender_new.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="253" column="0" lean-forward="false" selection-start-line="253" selection-start-column="0" selection-end-line="253" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui_plane_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-78">
+          <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/multiprocessing/process.py" />
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/multiprocessing/reduction.py" />
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/multiprocessing/spawn.py" />
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/PyQt5/QtCore.pyi" />
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/pygame/sprite.py" />
+    <entry file="file://$PROJECT_DIR$/ple/games/catcher_discrete2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="885">
+          <caret line="159" column="58" lean-forward="false" selection-start-line="159" selection-start-column="58" selection-end-line="159" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Anaconda3/Lib/site-packages/pip/_vendor/distlib/index.py" />
+    <entry file="file://C:/Program Files/Anaconda3/envs/py3.6/Lib/site-packages/pip/_vendor/distlib/index.py" />
+    <entry file="file://C:/Program Files/Anaconda3/Lib/site-packages/pygame/sprite.py" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/7zO4DFA895A/bee_env.py" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/7zO4DF93E5A/arena_construtor.py" />
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-1282051629/builtins.py" />
+    <entry file="file://$PROJECT_DIR$/catcher_discrete2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="136" column="0" lean-forward="true" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Anaconda3/Lib/codecs.py" />
+    <entry file="file://C:/Program Files/Anaconda3/Lib/site-packages/PyQt5/QtCore.pyi" />
+    <entry file="file://$PROJECT_DIR$/catcher_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="86" column="49" lean-forward="true" selection-start-line="86" selection-start-column="49" selection-end-line="86" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#70#0" expanded="true" />
+            <element signature="e#1605#1667#0" expanded="false" />
+            <element signature="e#3728#3745#0" expanded="false" />
+            <element signature="e#6875#7004#0" expanded="false" />
+            <element signature="e#7047#7210#0" expanded="false" />
+            <element signature="e#7278#7516#0" expanded="false" />
+            <element signature="e#7561#9340#0" expanded="false" />
+            <element signature="e#12098#12151#0" expanded="false" />
+            <element signature="e#14523#14914#0" expanded="false" />
+            <element signature="e#14958#16265#0" expanded="false" />
+            <element signature="e#16340#16609#0" expanded="false" />
+            <element signature="e#16686#16749#0" expanded="false" />
+            <element signature="e#16833#17042#0" expanded="false" />
+            <element signature="e#17048#17061#0" expanded="false" />
+            <element signature="e#18426#18573#0" expanded="false" />
+            <element signature="e#18650#18714#0" expanded="false" />
+            <element signature="e#18789#18865#0" expanded="false" />
+            <element signature="e#18948#19027#0" expanded="false" />
+            <element signature="e#19111#19192#0" expanded="false" />
+            <element signature="e#19254#19300#0" expanded="false" />
+            <element signature="e#19361#19406#0" expanded="false" />
+            <element signature="e#19476#20057#0" expanded="false" />
+            <element signature="e#20129#20719#0" expanded="false" />
+            <element signature="e#20790#21378#0" expanded="false" />
+            <element signature="e#21448#21659#0" expanded="false" />
+            <element signature="e#21723#22122#0" expanded="false" />
+            <element signature="e#22192#22587#0" expanded="false" />
+            <element signature="e#22658#23058#0" expanded="false" />
+            <element signature="e#23138#23391#0" expanded="false" />
+            <element signature="e#23453#24488#0" expanded="false" />
+            <element signature="e#24549#26657#0" expanded="false" />
+            <element signature="e#26717#27089#0" expanded="false" />
+            <element signature="e#27984#27985#0" expanded="false" />
+            <element signature="e#28433#28921#0" expanded="false" />
+            <element signature="e#28990#29511#0" expanded="false" />
+            <element signature="e#29584#29923#0" expanded="false" />
+            <element signature="e#29996#30335#0" expanded="false" />
+            <element signature="e#30408#30520#0" expanded="false" />
+            <element signature="e#30587#30700#0" expanded="false" />
+            <element signature="e#30740#33269#0" expanded="false" />
+            <element signature="e#35074#35093#0" expanded="false" />
+            <element signature="e#35364#35390#0" expanded="false" />
+            <element signature="e#36225#36282#0" expanded="false" />
+            <element signature="e#36828#36887#0" expanded="false" />
+            <element signature="e#37221#37263#0" expanded="false" />
+            <element signature="e#37481#37518#0" expanded="false" />
+            <element signature="e#37834#37852#0" expanded="false" />
+            <element signature="e#39940#40098#0" expanded="false" />
+            <element signature="e#40139#42736#0" expanded="false" />
+            <element signature="e#43877#43908#0" expanded="false" />
+            <element signature="e#44135#44179#0" expanded="false" />
+            <element signature="e#44335#52310#0" expanded="false" />
+            <element signature="e#44641#45171#0" expanded="false" />
+            <element signature="e#46958#48533#0" expanded="false" />
+            <element signature="e#52344#67239#0" expanded="false" />
+            <element signature="e#52409#52993#0" expanded="false" />
+            <element signature="e#53062#53441#0" expanded="false" />
+            <element signature="e#53497#53980#0" expanded="false" />
+            <element signature="e#54050#54846#0" expanded="false" />
+            <element signature="e#54916#55908#0" expanded="false" />
+            <element signature="e#55992#57090#0" expanded="false" />
+            <element signature="e#57126#57163#0" expanded="false" />
+            <element signature="e#57192#67239#0" expanded="false" />
+            <element signature="e#67239#67267#0" expanded="false" />
+            <element signature="e#69239#69356#0" expanded="false" />
+            <element signature="e#69389#69476#0" expanded="false" />
+            <marker date="1523238181069" expanded="false" signature="5741:6749" ph="..." />
+            <marker date="1523238181069" expanded="false" signature="59708:60432" ph="..." />
+            <marker date="1523238181069" expanded="false" signature="60545:60887" ph="..." />
+            <marker date="1523238181069" expanded="false" signature="61566:62714" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ple/games/utils/lv_reader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="60" column="49" lean-forward="false" selection-start-line="60" selection-start-column="49" selection-end-line="60" selection-end-column="49" />
+          <folding>
+            <element signature="e#205#830#0" expanded="false" />
+            <element signature="e#860#1382#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="317" column="41" lean-forward="true" selection-start-line="317" selection-start-column="41" selection-end-line="317" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydev_run_in_console.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plane/plane.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <element signature="e#20#55#0" expanded="true" />
+            <element signature="e#227#508#0" expanded="false" />
+            <element signature="e#7257#7881#0" expanded="false" />
+            <element signature="e#7922#8145#0" expanded="false" />
+            <element signature="e#8185#8245#0" expanded="false" />
+            <element signature="e#8283#8537#0" expanded="false" />
+            <element signature="e#8598#8777#0" expanded="false" />
+            <element signature="e#9469#9484#0" expanded="false" />
+            <element signature="e#9992#10546#0" expanded="false" />
+            <element signature="e#10713#10749#0" expanded="false" />
+            <element signature="e#11594#11805#0" expanded="false" />
+            <element signature="e#15780#15793#0" expanded="false" />
+            <marker date="1516689448731" expanded="true" signature="3163:3890" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/signal_center.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1066">
+          <caret line="58" column="36" lean-forward="false" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
+          <folding>
+            <element signature="e#111#146#0" expanded="false" />
+            <element signature="e#1829#1844#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plane_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="590">
+          <caret line="107" column="32" lean-forward="true" selection-start-line="107" selection-start-column="32" selection-end-line="107" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#70#0" expanded="true" />
+            <element signature="e#2701#2731#0" expanded="false" />
+            <element signature="e#3080#3144#0" expanded="false" />
+            <element signature="e#4059#4099#0" expanded="false" />
+            <element signature="e#4854#5242#0" expanded="false" />
+            <element signature="e#5307#7049#0" expanded="false" />
+            <element signature="e#5886#5984#0" expanded="false" />
+            <element signature="e#7114#7327#0" expanded="false" />
+            <element signature="e#7392#8655#0" expanded="false" />
+            <element signature="e#8738#8812#0" expanded="false" />
+            <element signature="e#8896#8972#0" expanded="false" />
+            <element signature="e#9036#9078#0" expanded="false" />
+            <element signature="e#9141#9182#0" expanded="false" />
+            <element signature="e#9249#9639#0" expanded="false" />
+            <element signature="e#9707#10084#0" expanded="false" />
+            <element signature="e#10154#10369#0" expanded="false" />
+            <element signature="e#10440#10658#0" expanded="false" />
+            <element signature="e#10733#10873#0" expanded="false" />
+            <element signature="e#10951#11088#0" expanded="false" />
+            <element signature="e#11164#11319#0" expanded="false" />
+            <element signature="e#11398#11479#0" expanded="false" />
+            <element signature="e#11569#11743#0" expanded="false" />
+            <element signature="e#11858#11971#0" expanded="false" />
+            <element signature="e#12808#12831#0" expanded="false" />
+            <element signature="e#16749#17097#0" expanded="false" />
+            <element signature="e#16766#16813#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
