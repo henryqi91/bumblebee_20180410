@@ -31,6 +31,7 @@ class SignalCenter(QObject):
         self.recording_status = "储存中.."
         self.record_interval = 100 #ms
         self.is_first_time = True
+        self.to_save = False
 
         # Game-related:
         self.SCREEN_WIDTH = 860

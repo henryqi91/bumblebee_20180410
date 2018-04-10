@@ -245,7 +245,7 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
     def run_game(self,signal_center):
         while True:
             # 控制游戏最大帧率
-            self.clock.tick(50)
+            self.clock.tick(60)
 
             # 处理游戏退出
             for event in pygame.event.get():

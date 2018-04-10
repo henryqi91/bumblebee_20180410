@@ -21,6 +21,7 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.freq = 50
+
         self.min_period = 10  # 0.01 s
         #move the control panel to the center of the monitor
         screen = QDesktopWidget().screenGeometry()
@@ -81,23 +82,20 @@ class MainWindow(QMainWindow):
         _thread.start_new_thread(self.labview_reader.torque_update,(self.signal_center,))
         self.labview_reader.torque_value_signal.connect(self.ui.torque_data_avg.setText)
 
-        #TIMER THREAD
+        #TIMERS
         self.temp_lim = int(1000 / self.min_period)
+        self.timer_clock = QTimer()
+        self.timer_clock.setInterval(self.min_period) # 0.1s as the time unit
+        self.timer_record = QTimer()
+        self.timer_record.setInterval(self.min_period)
+
         self.time_temp = 0
         self.time_count = 0
-
-        self.timer = QTimer()
-        self.timer.setInterval(self.min_period) # 0.1s as the time unit
-        self.timer.start()
-        self.timer.timeout.connect(self.run_timer)
-
-        # self.timer = Timer(self.signal_center)
-        # self.timer.time_sec_signal.connect(self.ui.timer_display.display)
-        # self.timer.start()
-        # _thread.start_new_thread(self.timer.run,())
-
-        # init the data recorder
-        # self.data_record = DataRecord(self.signal_center)
+        self.data = []
+        self.timer_clock.timeout.connect(self.run_timer)
+        self.timer_record.timeout.connect(self.record_data)
+        self.timer_clock.start()
+        self.timer_record.start()
         # _thread.start_new_thread(self.data_record.recording,(self.signal_center,))
 
     def run_timer(self):
@@ -106,13 +104,38 @@ class MainWindow(QMainWindow):
         else:
             self.time_temp = 0
             self.time_count += 1
+            self.signal_center.time_sec = self.time_count
             self.ui.timer_display.display(self.time_count)
 
-    def init_data_record(self):
-        self.data = []
-        pass
-
     def record_data(self):
+        if self.signal_center.is_recording:
+            left_light_stream = self.signal_center.left_dir_speed_spinbox  ###
+            right_light_stream = self.signal_center.right_dir_speed_spinbox  ###
+            bee_pos_x = self.signal_center.player_x  ###
+            try:
+                torque_data = round(self.signal_center.reader_data, 5)  ###
+            except:
+                torque_data = "None"
+            curr_data = [self.signal_center.time_sec_signal, left_light_stream, right_light_stream, bee_pos_x
+                , torque_data, self.signal_center.parameter_div
+                , self.signal_center.score
+                         ]
+            self.data.append(curr_data)
+        if self.signal_center.to_save:
+            self.signal_center.recording_status = "储存中...."
+            df = pd.DataFrame(self.data, columns=["时间", "光流左", "光流右", "熊蜂x",
+                                                  "扭矩", "最大参数"
+                                                  # , "每边更新次数", "每次持续时间"
+                , "得分"
+                                                  # , "区域"
+                                                  # , "acce_a", "acce_seconds"
+                                                  ])
+
+            local_time = time.localtime(int(time.time()))
+            time_format = "%Y-%m-%d %Hh-%Mm-%Ss"
+            file_name = "./data/" + str(time.strftime(time_format, local_time)) + ".csv"
+            df.to_csv(file_name)
+            self.signal_center.to_save = False
         pass
 
     def _action_single_screen(self,angle_speed,direction):
@@ -130,13 +153,14 @@ class MainWindow(QMainWindow):
         # self.player = self.plane_game.player
         self.signal_center.enemy_speed = self.ui.obst_fall_speed_spinbox.value()
         self.signal_center.is_running = True  #This line starts the game
+        self.signal_center.is_recording = False
 
         # start the processes:
         # game-related:
         # self.plane_game = plane.PlaneGame(signal_center=self.signal_center)
         # self.plane_game.plane_game_init(signal_center=self.signal_center)
         self.signal_center.is_keyboard = False  # whether to control via keyboard
-        self.signal_center.is_running = True  # whether the game is paused or started
+        # self.signal_center.is_running = True  # whether the game is paused or started
         # _thread.start_new_thread(self.plane_game.run_game,(self.signal_center,)) # start the game thread
         # # self.p_game = Process(target=self.plane_game.run_game, args=())
         # #
@@ -163,6 +187,12 @@ class MainWindow(QMainWindow):
         self.ui.manual_pause.setEnabled(True)
         self.ui.manual_reset.setEnabled(True)
 
+        # self.time_temp = 0
+        # self.time_count = 0
+        # self.data = []
+        # self.timer_clock.start()
+        # self.timer_record.start()
+
     @pyqtSlot()
     def on_manual_pause_clicked(self):
         self.signal_center.is_running = False
@@ -177,8 +207,9 @@ class MainWindow(QMainWindow):
         # self.plane_game = plane.PlaneGame(self.signal_center)
         # self.signal_center.freq = self.freq
         self.plane_game.reset_game(self.signal_center)
-        self.signal_center.is_running = False  # whether the game is paused or started
+        self.signal_center.is_running = True  # whether the game is paused or started
         self.signal_center.time_sec = 0
+        self.time_count = 0
         # self.signal_center.is_keyboard = False
         # _thread.exit_thread(self.plane_game.run_game,(self.signal_center))
         # _thread.start_new_thread(self.plane_game.run_game,(self.signal_center,))
@@ -216,23 +247,21 @@ class MainWindow(QMainWindow):
     def on_stop_light_clicked(self):
         self._action_single_screen(0, "stop_all")
 
-    @pyqtSlot()
-    def on_stop_recording_clicked(self):
-        # self.data_record.stop_recording()
-        self.signal_center.is_recording = False
-        # self.data_record.stop_recording(self.signal_center)
-        self.ui.start_recording.setEnabled(True)
-        self.ui.stop_recording.setEnabled(False)
-        # self.ui.recording_status.setText("记录完成！文件：" + self.data_record.file_name)
-        self.ui.recording_status.setText("记录完成！")
-        pass
+    # @pyqtSlot()
+    # def on_stop_recording_clicked(self):
+    #     # self.data_record.stop_recording()
+    #     self.signal_center.is_recording = False
+    #     # self.data_record.stop_recording(self.signal_center)
+    #     self.ui.start_recording.setEnabled(True)
+    #     self.ui.stop_recording.setEnabled(False)
+    #     # self.ui.recording_status.setText("记录完成！文件：" + self.data_record.file_name)
+    #     self.ui.recording_status.setText("记录完成！")
+    #     pass
 
     @pyqtSlot()
     def on_start_recording_clicked(self):
-        self.data_record.data = []
-        self.data_record.start_time = time.time()
-        # self.data_record.recording()
-        # self.signal_center.is_first_time = False
+        self.data = []
+        self.signal_center.to_save = False
         self.signal_center.is_recording = True
 
         self.ui.start_recording.setEnabled(False)
@@ -240,6 +269,30 @@ class MainWindow(QMainWindow):
         self.ui.recording_status.setText("记录中。。。")
 
         pass
+
+    @pyqtSlot()
+    def on_stop_recording_clicked(self):
+        self.signal_center.is_recording = False
+        self.signal_center.to_save = True
+        self.ui.start_recording.setEnabled(True)
+        self.ui.stop_recording.setEnabled(False)
+        # self.ui.recording_status.setText("记录完成！文件：" + self.data_record.file_name)
+        self.ui.recording_status.setText("记录完成！")
+        pass
+    # @pyqtSlot()
+    # def on_start_recording_clicked(self):
+    #     self.data_record.data = []
+    #     self.data_record.start_time = time.time()
+    #     # self.data_record.recording()
+    #     # self.signal_center.is_first_time = False
+    #     self.signal_center.is_recording = True
+    #
+    #     self.ui.start_recording.setEnabled(False)
+    #     self.ui.stop_recording.setEnabled(True)
+    #     self.ui.recording_status.setText("记录中。。。")
+    #
+    #     pass
+
 
     @pyqtSlot()
     def on_single_left_shift_clicked(self):
@@ -346,61 +399,61 @@ class LvReader(QObject):
 #     # def timerEvent(self, a0: 'QTimerEvent'):
 #     #     self.time_sec_signal.emit(self.time_sec)
 
-class DataRecord(QObject):
-
-    def __init__(self,signal_center):
-        super(DataRecord, self).__init__()
-        self.signal_center = signal_center
-        self.data = []
-        self.start_time = time.time()
-
-    def recording(self,signal_center):
-        self.is_recorded = False
-        while True:
-            if signal_center.is_recording:
-                self.start_recording(signal_center)
-                self.is_recorded = False
-            if not signal_center.is_recording and not self.is_recorded:
-                self.stop_recording(signal_center)
-                self.is_recorded = True
-
-    def start_recording(self,signal_center):
-        self.start_time = time.time()
-        if signal_center.is_recording:
-            curr_time = time.time() * 1000
-            time_diff = curr_time - (self.start_time*1000)
-            if time_diff >= signal_center.record_interval:  # re
-                # time_diff = round(time_diff,3)
-                left_light_stream = signal_center.left_dir_speed_spinbox  ###
-                right_light_stream = signal_center.right_dir_speed_spinbox  ###
-                bee_pos_x = signal_center.player_x  ###
-                try:
-                    torque_data = round(signal_center.reader_data, 5)  ###
-                except:
-                    torque_data = "None"
-                curr_data = [signal_center.time_sec_signal, left_light_stream, right_light_stream, bee_pos_x
-                            , torque_data, signal_center.parameter_div
-                            , signal_center.score
-                             ]
-                self.data.append(curr_data)
-                self.start_time = time.time()
-                # time.sleep(0.02)
-
-    def stop_recording(self,signal_center):
-        signal_center.recording_status = "储存中...."
-        df = pd.DataFrame(self.data, columns=["时间", "光流左", "光流右", "熊蜂x",
-                                                   "扭矩", "最大参数"
-                                                    # , "每边更新次数", "每次持续时间"
-                                                   ,"得分"
-                                                    # , "区域"
-                                                    # , "acce_a", "acce_seconds"
-                                                   ])
-
-        local_time = time.localtime(int(time.time()))
-        time_format = "%Y-%m-%d %Hh-%Mm-%Ss"
-        file_name = "./data/" + str(time.strftime(time_format, local_time)) + ".csv"
-        df.to_csv(file_name)
-        self.data = []
+# class DataRecord(QObject):
+#
+#     def __init__(self,signal_center):
+#         super(DataRecord, self).__init__()
+#         self.signal_center = signal_center
+#         self.data = []
+#         self.start_time = time.time()
+#
+#     def recording(self,signal_center):
+#         self.is_recorded = False
+#         while True:
+#             if signal_center.is_recording:
+#                 self.start_recording(signal_center)
+#                 self.is_recorded = False
+#             if not signal_center.is_recording and not self.is_recorded:
+#                 self.stop_recording(signal_center)
+#                 self.is_recorded = True
+#
+#     def start_recording(self,signal_center):
+#         self.start_time = time.time()
+#         if signal_center.is_recording:
+#             curr_time = time.time() * 1000
+#             time_diff = curr_time - (self.start_time*1000)
+#             if time_diff >= signal_center.record_interval:  # re
+#                 # time_diff = round(time_diff,3)
+#                 left_light_stream = signal_center.left_dir_speed_spinbox  ###
+#                 right_light_stream = signal_center.right_dir_speed_spinbox  ###
+#                 bee_pos_x = signal_center.player_x  ###
+#                 try:
+#                     torque_data = round(signal_center.reader_data, 5)  ###
+#                 except:
+#                     torque_data = "None"
+#                 curr_data = [signal_center.time_sec_signal, left_light_stream, right_light_stream, bee_pos_x
+#                             , torque_data, signal_center.parameter_div
+#                             , signal_center.score
+#                              ]
+#                 self.data.append(curr_data)
+#                 self.start_time = time.time()
+#                 # time.sleep(0.02)
+#
+#     def stop_recording(self,signal_center):
+#         signal_center.recording_status = "储存中...."
+#         df = pd.DataFrame(self.data, columns=["时间", "光流左", "光流右", "熊蜂x",
+#                                                    "扭矩", "最大参数"
+#                                                     # , "每边更新次数", "每次持续时间"
+#                                                    ,"得分"
+#                                                     # , "区域"
+#                                                     # , "acce_a", "acce_seconds"
+#                                                    ])
+#
+#         local_time = time.localtime(int(time.time()))
+#         time_format = "%Y-%m-%d %Hh-%Mm-%Ss"
+#         file_name = "./data/" + str(time.strftime(time_format, local_time)) + ".csv"
+#         df.to_csv(file_name)
+#         self.data = []
 
 def run_window():
     app = QApplication(sys.argv)
