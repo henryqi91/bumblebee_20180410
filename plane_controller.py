@@ -36,13 +36,13 @@ class MainWindow(QMainWindow):
         self.ui.data_record_interval_spinbox.setMaximum(1000)
         self.ui.data_num_spinbox.setMaximum(1000)
         self.ui.x_coord_factor_spinbox.setMaximum(1000)
-        self.ui.obst_freq_spinbox.setMaximum(500)
+        self.ui.obst_freq_spinbox.setMaximum(2000)
         self.ui.obst_freq_spinbox.setMinimum(1)
 
-        self.ui.obst_fall_speed_spinbox.setValue(5)
+        self.ui.obst_fall_speed_spinbox.setValue(1)
         self.ui.left_dir_speed_spinbox.setValue(40)
         self.ui.right_dir_speed_spinbox.setValue(40)
-        self.ui.obst_freq_spinbox.setValue(5)
+        self.ui.obst_freq_spinbox.setValue(100)
         self.ui.x_max_spinbox.setValue(15)
         self.ui.x_max_actual.setText(str(1.5))
         self.ui.data_num_spinbox.setValue(100)
@@ -92,6 +92,7 @@ class MainWindow(QMainWindow):
         self.time_temp = 0
         self.time_count = 0
         self.data = []
+        self.signal_center.is_recording = False
         self.timer_clock.timeout.connect(self.run_timer)
         self.timer_record.timeout.connect(self.record_data)
         self.timer_clock.start()
@@ -155,6 +156,8 @@ class MainWindow(QMainWindow):
         self.signal_center.is_running = True  #This line starts the game
         self.signal_center.is_recording = False
 
+        self.signal_center.obst_fall_speed = self.ui.obst_fall_speed_spinbox.value()
+        self.signal_center.freq = self.ui.obst_freq_spinbox.value()
         # start the processes:
         # game-related:
         # self.plane_game = plane.PlaneGame(signal_center=self.signal_center)
@@ -195,7 +198,12 @@ class MainWindow(QMainWindow):
 
     @pyqtSlot()
     def on_manual_pause_clicked(self):
-        self.signal_center.is_running = False
+        self.signal_center.is_running = True
+        self.prev_speed = self.plane_game.enemy_speed
+        # pause all objects except the player
+        self.signal_center.obst_fall_speed = 0
+        self.signal_center.freq = 0
+
         #update buttons
         self.ui.manual_start.setEnabled(True)
         self.ui.manual_pause.setEnabled(False)
@@ -210,6 +218,9 @@ class MainWindow(QMainWindow):
         self.signal_center.is_running = True  # whether the game is paused or started
         self.signal_center.time_sec = 0
         self.time_count = 0
+        self.signal_center.freq = self.ui.obst_freq_spinbox.value()
+        self.signal_center.obst_fall_speed = self.ui.obst_fall_speed_spinbox.value()
+
         # self.signal_center.is_keyboard = False
         # _thread.exit_thread(self.plane_game.run_game,(self.signal_center))
         # _thread.start_new_thread(self.plane_game.run_game,(self.signal_center,))

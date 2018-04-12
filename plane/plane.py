@@ -108,7 +108,7 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
         self.enemy_width = 57
         self.enemy_height = 43
 
-        self.enemy_speed = enemy_speed
+        self.enemy_speed = signal_center.enemy_speed
         self.player_speed = 20
         self.bullet_speed = 50
 
