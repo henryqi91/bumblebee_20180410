@@ -202,7 +202,7 @@ class MainWindow(QMainWindow):
         self.prev_speed = self.plane_game.enemy_speed
         # pause all objects except the player
         self.signal_center.obst_fall_speed = 0
-        self.signal_center.freq = 0
+        self.signal_center.freq = 1000000
 
         #update buttons
         self.ui.manual_start.setEnabled(True)
@@ -238,8 +238,8 @@ class MainWindow(QMainWindow):
         # p_game.start()
         # p_game.join()
         #buttons:
-        self.ui.manual_start.setEnabled(True)
-        self.ui.manual_pause.setEnabled(False)
+        self.ui.manual_start.setEnabled(False)
+        self.ui.manual_pause.setEnabled(True)
         self.ui.manual_reset.setEnabled(True)
 
     @pyqtSlot()
