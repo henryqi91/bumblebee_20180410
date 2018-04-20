@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import (QApplication, QMainWindow,QDesktopWidget)
 from PyQt5.QtCore import (pyqtSignal, pyqtSlot, QObject, QSettings, QThread,QBasicTimer,QTimer)
 from ui_plane_controller import Ui_MainWindow
-from plane import plane
+from plane2 import plane
 import _thread
 import sys
 import time
@@ -36,7 +36,7 @@ class MainWindow(QMainWindow):
         self.ui.data_record_interval_spinbox.setMaximum(1000)
         self.ui.data_num_spinbox.setMaximum(1000)
         self.ui.x_coord_factor_spinbox.setMaximum(1000)
-        self.ui.obst_freq_spinbox.setMaximum(2000)
+        self.ui.obst_freq_spinbox.setMaximum(5000)
         self.ui.obst_freq_spinbox.setMinimum(1)
 
         self.ui.obst_fall_speed_spinbox.setValue(1)
@@ -290,23 +290,10 @@ class MainWindow(QMainWindow):
         # self.ui.recording_status.setText("记录完成！文件：" + self.data_record.file_name)
         self.ui.recording_status.setText("记录完成！")
         pass
-    # @pyqtSlot()
-    # def on_start_recording_clicked(self):
-    #     self.data_record.data = []
-    #     self.data_record.start_time = time.time()
-    #     # self.data_record.recording()
-    #     # self.signal_center.is_first_time = False
-    #     self.signal_center.is_recording = True
-    #
-    #     self.ui.start_recording.setEnabled(False)
-    #     self.ui.stop_recording.setEnabled(True)
-    #     self.ui.recording_status.setText("记录中。。。")
-    #
-    #     pass
-
 
     @pyqtSlot()
     def on_single_left_shift_clicked(self):
+        self.is_rule = False
         temp = self.ui.left_dir_speed_spinbox.value()
         self._action_single_screen(temp, "left")
         self._action_single_screen(temp, "left")
@@ -315,6 +302,7 @@ class MainWindow(QMainWindow):
 
     @pyqtSlot()
     def on_single_right_shift_clicked(self):
+        self.is_rule = False
         temp = self.ui.right_dir_speed_spinbox.value()
         self._action_single_screen(temp, "right")
         self._action_single_screen(temp, "right")
@@ -349,6 +337,41 @@ class MainWindow(QMainWindow):
         value = self.ui.data_record_interval_spinbox.value() / 100
         self.data_record.record_interval = value
         self.ui.actual_record_interval_display.setText(str(value))
+
+    @pyqtSlot()
+    def on_simple_AI_clicked(self):
+        # light_intervals =   [-70,-50,-30,-10,  0,  10, 30, 50, 70]
+        self.is_rule = True
+        x_intervals = [200, 300, 400, 500, 600, 700, 800, 900]
+        while self.is_rule:
+            closest_x = self.plane_game.get_closest_x()
+            if closest_x < x_intervals[0]:
+                self._action_single_screen(70,"left")
+                self.ui.AI_mode.setText("70 左")
+            elif closest_x < x_intervals[1]:
+                self._action_single_screen(50,"left")
+                self.ui.AI_mode.setText("50 左")
+            elif closest_x < x_intervals[2]:
+                self._action_single_screen(30,"left")
+                self.ui.AI_mode.setText("30 左")
+            elif closest_x < x_intervals[3]:
+                self._action_single_screen(10,"left")
+                self.ui.AI_mode.setText("10 左")
+            elif closest_x < x_intervals[4]:
+                self._action_single_screen(10,"right")
+                self.ui.AI_mode.setText("10 右")
+            elif closest_x < x_intervals[5]:
+                self._action_single_screen(30,"right")
+                self.ui.AI_mode.setText("30 右")
+            elif closest_x < x_intervals[6]:
+                self._action_single_screen(50,"right")
+                self.ui.AI_mode.setText("50 右")
+            elif closest_x < x_intervals[7]:
+                self._action_single_screen(70,"right")
+                self.ui.AI_mode.setText("70 右")
+            pass
+
+
 
 class LvReader(QObject):
     torque_value_signal = pyqtSignal(str)
