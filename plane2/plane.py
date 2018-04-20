@@ -294,9 +294,9 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
 
     def run_game(self,signal_center):
 
-        while True:
+        # while True:
             # 控制游戏最大帧率
-            self.clock.tick(45)
+            self.clock.tick(60)
 
             # 处理游戏退出
             for event in pygame.event.get():
@@ -353,7 +353,7 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
                         enemy.move()
                     # 3. 敌机与玩家飞机碰撞效果处理
                     if pygame.sprite.collide_rect_ratio(1)(enemy, self.player):
-                        self.enemies_down.add(enemy)
+                        # self.enemies_down.add(enemy)
                         self.enemies1.remove(enemy)
                         self.player.is_hit = True
                         # self.is_game_over = True
@@ -400,6 +400,7 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
                             self.player_life -= 1
                             self.is_game_over = True
                             self.is_running = False
+
                         else:
                             self.player_life -= 1
                             self.player.is_hit = False
@@ -433,7 +434,7 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
                                          location=[10, 50], color=(128, 128, 255))
                     # 绘制FPS
                     self.set_screen_text(text="FPS: " + str(int(self.clock.get_fps())),
-                                         location=[900, 10], color=(128, 255, 128))
+                                         location=[self.SCREEN_WIDTH-100, 10], color=(128, 255, 128))
 
                     pygame.display.update()
 
@@ -473,10 +474,10 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
 
             # pygame.display.update()
 
-        #显示得分并处理游戏退出
-        while 1:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                    exit()
-                pygame.display.update()
+            # #显示得分并处理游戏退出
+            # while 1:
+            #     for event in pygame.event.get():
+            #         if event.type == pygame.QUIT:
+            #             pygame.quit()
+            #             exit()
+            #         pygame.display.update()

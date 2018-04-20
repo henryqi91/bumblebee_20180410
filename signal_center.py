@@ -34,14 +34,14 @@ class SignalCenter(QObject):
         self.to_save = False
 
         # Game-related:
-        self.SCREEN_WIDTH = 1000
+        self.SCREEN_WIDTH = 666
         self.SCREEN_HEIGHT = 860
         self.is_keyboard = True
         self.is_running = True
         #出现间隔:
-        self.plane_appear_freq = 50000
+        self.plane_appear_freq = 5000
         #下落速度
-        self.obst_fall_speed = 1
+        self.obst_fall_speed = 4
         # self.obst_appear_interval = 50
         self.player_x = 0
         self.score = 0

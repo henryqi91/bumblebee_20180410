@@ -39,7 +39,7 @@ class MainWindow(QMainWindow):
         self.ui.obst_freq_spinbox.setMaximum(5000)
         self.ui.obst_freq_spinbox.setMinimum(1)
 
-        self.ui.obst_fall_speed_spinbox.setValue(1)
+        self.ui.obst_fall_speed_spinbox.setValue(2.5)
         self.ui.left_dir_speed_spinbox.setValue(40)
         self.ui.right_dir_speed_spinbox.setValue(40)
         self.ui.obst_freq_spinbox.setValue(100)
@@ -69,7 +69,7 @@ class MainWindow(QMainWindow):
         # self.game_thread.finished.connect(self.game_thread.deleteLater)
         # self.plane_game.moveToThread(self.game_thread)
         # self.game_thread.start()
-        _thread.start_new_thread(self.plane_game.run_game,(self.signal_center,)) # start the game thread
+        # _thread.start_new_thread(self.plane_game.run_game,(self.signal_center,)) # start the game thread
         # self.p_game = Process(target=self.plane_game.run_game,args=())
 
         # start the movingInstance thread
@@ -83,30 +83,30 @@ class MainWindow(QMainWindow):
         self.labview_reader.torque_value_signal.connect(self.ui.torque_data_avg.setText)
 
         #TIMERS
-        self.temp_lim = int(1000 / self.min_period)
         self.timer_clock = QTimer()
-        self.timer_clock.setInterval(self.min_period) # 0.1s as the time unit
         self.timer_record = QTimer()
-        self.timer_record.setInterval(self.min_period)
+        self.timer_game = QTimer()
+        self.timer_lv_reader = QTimer()
+
+        # self.timer_clock.setInterval(10) # 0.1s as the time unit
+        # self.timer_record.setInterval(10)
+        # self.game_thread_clock.setInterval(1) # 0.01 sec
 
         self.time_temp = 0
         self.time_count = 0
         self.data = []
         self.signal_center.is_recording = False
+
         self.timer_clock.timeout.connect(self.run_timer)
         self.timer_record.timeout.connect(self.record_data)
-        self.timer_clock.start()
-        self.timer_record.start()
+        self.timer_game.timeout.connect(self.run_game)
+
         # _thread.start_new_thread(self.data_record.recording,(self.signal_center,))
 
     def run_timer(self):
-        if self.time_temp < self.temp_lim:
-            self.time_temp += 1
-        else:
-            self.time_temp = 0
-            self.time_count += 1
-            self.signal_center.time_sec = self.time_count
-            self.ui.timer_display.display(self.time_count)
+        self.time_count += 1
+        self.signal_center.time_sec = self.time_count
+        self.ui.timer_display.display(self.time_count)
 
     def record_data(self):
         if self.signal_center.is_recording:
@@ -139,6 +139,9 @@ class MainWindow(QMainWindow):
             self.signal_center.to_save = False
         pass
 
+    def run_game(self):
+        self.plane_game.run_game(self.signal_center)
+
     def _action_single_screen(self,angle_speed,direction):
         if direction == "left" or direction =="right":
             self._sender.send("params", 1, "hDirection", direction)
@@ -163,27 +166,9 @@ class MainWindow(QMainWindow):
         # self.plane_game = plane.PlaneGame(signal_center=self.signal_center)
         # self.plane_game.plane_game_init(signal_center=self.signal_center)
         self.signal_center.is_keyboard = False  # whether to control via keyboard
-        # self.signal_center.is_running = True  # whether the game is paused or started
-        # _thread.start_new_thread(self.plane_game.run_game,(self.signal_center,)) # start the game thread
-        # # self.p_game = Process(target=self.plane_game.run_game, args=())
-        # #
-        # # # start the movingInstance thread
-        # # self.movingInstance = MovingInstance(self.ui, self.plane_game)
-        # # # _thread.start_new_thread(self.movingInstance.torque_update,())
-        # # self.p_torque = Process(target=self.movingInstance.torque_update, args=())
-        # #
-        # # # init the data recorder
-        # # self.data_record = DataRecord(self.ui, self.plane_game)
-        # # # _thread.start_new_thread(self.data_record.recording,())
-        # # self.p_data = Process(target=self.data_record.recording, args=())
-        # #
-        # # self.p_game.start()
-        # # self.p_game.join()
-        # # self.p_torque.start()
-        # # self.p_torque.join()
-        # # self.p_data.start()
-        # # self.p_data.join()
-        #
+        self.timer_clock.start(1000)
+        self.timer_game.start(1)
+
         # #update the buttons
         self.ui.manual_start.setEnabled(False)
         self.ui.manual_start.setText("继续")
@@ -198,11 +183,10 @@ class MainWindow(QMainWindow):
 
     @pyqtSlot()
     def on_manual_pause_clicked(self):
-        self.signal_center.is_running = True
         self.prev_speed = self.plane_game.enemy_speed
         # pause all objects except the player
         self.signal_center.obst_fall_speed = 0
-        self.signal_center.freq = 1000000
+        # self.signal_center.plane_appear_freq = self.ui.obst_freq_spinbox
 
         #update buttons
         self.ui.manual_start.setEnabled(True)
@@ -274,6 +258,7 @@ class MainWindow(QMainWindow):
         self.data = []
         self.signal_center.to_save = False
         self.signal_center.is_recording = True
+        self.timer_record.start(10)
 
         self.ui.start_recording.setEnabled(False)
         self.ui.stop_recording.setEnabled(True)
@@ -330,7 +315,7 @@ class MainWindow(QMainWindow):
     @pyqtSlot()
     def on_obst_freq_spinbox_editing_finished(self):
         value = self.ui.obst_freq_spinbox.value()
-        self.signal_center.freq = value
+        self.signal_center.plane_appear_freq = value
 
     @pyqtSlot()
     def on_data_record_interval_spinbox_editing_finished(self):
