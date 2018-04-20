@@ -39,7 +39,7 @@ class SignalCenter(QObject):
         self.is_keyboard = True
         self.is_running = True
         #出现间隔:
-        self.plane_appear_freq = 5000
+        self.plane_appear_freq = 300
         #下落速度
         self.obst_fall_speed = 4
         # self.obst_appear_interval = 50

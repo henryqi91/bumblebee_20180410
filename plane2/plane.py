@@ -310,6 +310,11 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
                 self.is_running = signal_center.is_running
                 self.score = signal_center.score
                 self.is_keyboard = signal_center.is_keyboard
+                enemy_selection = 1
+                if enemy_selection == 1:
+                    self.enemy1_img = self.plane_img.subsurface(self.enemy1_rect)
+                elif enemy_selection == 2:
+                    self.enemy1_img = self.obstacle_img
 
                 # 生成子弹，需要控制发射频率
                 if self.is_running:
@@ -325,15 +330,10 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
                     if self.enemy_frequency % signal_center.plane_appear_freq == 0:
                         enemy1_pos = [random.randint(0, self.SCREEN_WIDTH - self.enemy1_rect.width), 0]
                         # enemy_selection = random.randint(1,2) # 1-plane, 2-rock
-                        enemy_selection = 1
-                        if enemy_selection == 1:
-                            self.enemy1_img = self.plane_img.subsurface(self.enemy1_rect)
-                        elif enemy_selection == 2:
-                            self.enemy1_img = self.obstacle_img
                         enemy1 = Enemy(self.enemy1_img, self.enemy1_down_imgs, enemy1_pos)
                         self.enemies1.add(enemy1)
                     self.enemy_frequency += 1
-                    if self.enemy_frequency >= 100:
+                    if self.enemy_frequency >= signal_center.plane_appear_freq:
                         self.enemy_frequency = 0
 
                 for bullet in self.player.bullets:
