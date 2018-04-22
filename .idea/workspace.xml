@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a92bcc57-e681-4efd-9e20-f391343c48c2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plane2/plane.py" afterPath="$PROJECT_DIR$/plane2/plane.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,8 +23,8 @@
             <file leaf-file-name="game.py" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/PythonShootGame-master/game.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="48">
-                    <caret line="173" column="27" lean-forward="true" selection-start-line="173" selection-start-column="27" selection-end-line="173" selection-end-column="27" />
+                  <state relative-caret-position="256">
+                    <caret line="232" column="10" lean-forward="true" selection-start-line="232" selection-start-column="10" selection-end-line="232" selection-end-column="10" />
                     <folding>
                       <element signature="e#24#37#0" expanded="true" />
                       <element signature="e#200#482#0" expanded="false" />
@@ -47,8 +48,8 @@
           <file leaf-file-name="plane_controller.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/plane_controller.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="404">
-                  <caret line="318" column="0" lean-forward="true" selection-start-line="318" selection-start-column="0" selection-end-line="318" selection-end-column="0" />
+                <state relative-caret-position="456">
+                  <caret line="320" column="40" lean-forward="true" selection-start-line="320" selection-start-column="40" selection-end-line="320" selection-end-column="40" />
                   <folding>
                     <element signature="e#0#70#0" expanded="true" />
                     <element signature="e#4466#5968#0" expanded="false" />
@@ -95,8 +96,8 @@
           <file leaf-file-name="plane_controller.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/plane_controller.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="200">
-                  <caret line="155" column="0" lean-forward="false" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
+                <state relative-caret-position="222">
+                  <caret line="154" column="8" lean-forward="false" selection-start-line="154" selection-start-column="8" selection-end-line="154" selection-end-column="8" />
                   <folding>
                     <element signature="e#0#70#0" expanded="true" />
                     <element signature="e#6235#6623#0" expanded="false" />
@@ -118,7 +119,7 @@
           <file leaf-file-name="signal_center.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/signal_center.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="598">
+                <state relative-caret-position="-10">
                   <caret line="40" column="14" lean-forward="true" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
                   <folding>
                     <element signature="e#111#146#0" expanded="false" />
@@ -131,17 +132,15 @@
           <file leaf-file-name="plane.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/plane2/plane.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1108">
-                  <caret line="360" column="47" lean-forward="false" selection-start-line="360" selection-start-column="47" selection-end-line="360" selection-end-column="47" />
+                <state relative-caret-position="222">
+                  <caret line="112" column="29" lean-forward="false" selection-start-line="112" selection-start-column="29" selection-end-line="112" selection-end-column="29" />
                   <folding>
                     <element signature="e#20#55#0" expanded="true" />
-                    <element signature="e#7292#7949#0" expanded="false" />
-                    <element signature="e#7991#8214#0" expanded="false" />
-                    <element signature="e#8254#8314#0" expanded="false" />
-                    <element signature="e#8352#8606#0" expanded="false" />
-                    <element signature="e#8667#8846#0" expanded="false" />
-                    <element signature="e#8885#9060#0" expanded="false" />
-                    <element signature="e#14104#14142#0" expanded="false" />
+                    <element signature="e#7865#8088#0" expanded="false" />
+                    <element signature="e#8128#8188#0" expanded="false" />
+                    <element signature="e#8226#8480#0" expanded="false" />
+                    <element signature="e#8541#8720#0" expanded="false" />
+                    <element signature="e#8759#8934#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -160,7 +159,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>is_ti</find>
       <find>0</find>
       <find>obst_fall_speed</find>
       <find>reset</find>
@@ -187,9 +185,10 @@
       <find>on_</find>
       <find>fall</find>
       <find>obst_fall_speed_spinbox</find>
-      <find>obst</find>
       <find>self.is_keyboard</find>
+      <find>self.game_</find>
       <find>SCREEN_WIDTH</find>
+      <find>obst</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -707,7 +706,14 @@
       <option name="project" value="LOCAL" />
       <updated>1524404399992</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="4.22:&#10;- fixed the displaying issue">
+      <created>1524404424462</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1524404424462</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -740,7 +746,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="4.10:&#10;- optimized timer with QTimer" />
     <MESSAGE value="4.20:&#10;- removed threading process, using QTimer() as the synchronization method instead" />
-    <option name="LAST_COMMIT_MESSAGE" value="4.20:&#10;- removed threading process, using QTimer() as the synchronization method instead" />
+    <MESSAGE value="4.22:&#10;- fixed the displaying issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="4.22:&#10;- fixed the displaying issue" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1081,21 +1088,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/signal_center.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <element signature="e#111#146#0" expanded="false" />
-            <element signature="e#1857#1872#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PythonShootGame-master/game.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="173" column="27" lean-forward="true" selection-start-line="173" selection-start-column="27" selection-end-line="173" selection-end-column="27" />
+        <state relative-caret-position="256">
+          <caret line="232" column="10" lean-forward="true" selection-start-line="232" selection-start-column="10" selection-end-line="232" selection-end-column="10" />
           <folding>
             <element signature="e#24#37#0" expanded="true" />
             <element signature="e#200#482#0" expanded="false" />
@@ -1105,48 +1101,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plane2/plane.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1108">
-          <caret line="360" column="47" lean-forward="false" selection-start-line="360" selection-start-column="47" selection-end-line="360" selection-end-column="47" />
-          <folding>
-            <element signature="e#20#55#0" expanded="true" />
-            <element signature="e#7292#7949#0" expanded="false" />
-            <element signature="e#7991#8214#0" expanded="false" />
-            <element signature="e#8254#8314#0" expanded="false" />
-            <element signature="e#8352#8606#0" expanded="false" />
-            <element signature="e#8667#8846#0" expanded="false" />
-            <element signature="e#8885#9060#0" expanded="false" />
-            <element signature="e#14104#14142#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plane_controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="318" column="0" lean-forward="true" selection-start-line="318" selection-start-column="0" selection-end-line="318" selection-end-column="0" />
+        <state relative-caret-position="222">
+          <caret line="154" column="8" lean-forward="false" selection-start-line="154" selection-start-column="8" selection-end-line="154" selection-end-column="8" />
           <folding>
             <element signature="e#0#70#0" expanded="true" />
-            <element signature="e#4466#5968#0" expanded="false" />
             <element signature="e#6235#6623#0" expanded="false" />
             <element signature="e#7378#7398#0" expanded="false" />
+            <element signature="e#8044#9488#0" expanded="false" />
             <element signature="e#8517#8557#0" expanded="false" />
             <element signature="e#9571#9645#0" expanded="false" />
             <element signature="e#9729#9805#0" expanded="false" />
             <element signature="e#9869#9911#0" expanded="false" />
             <element signature="e#9974#10015#0" expanded="false" />
             <element signature="e#10021#10034#0" expanded="false" />
-            <element signature="e#10560#10864#0" expanded="false" />
-            <element signature="e#10931#11257#0" expanded="false" />
-            <element signature="e#11327#11571#0" expanded="false" />
-            <element signature="e#11642#11889#0" expanded="false" />
-            <element signature="e#11964#12104#0" expanded="false" />
-            <element signature="e#12182#12319#0" expanded="false" />
-            <element signature="e#12395#12550#0" expanded="false" />
-            <element signature="e#13219#14649#0" expanded="false" />
             <element signature="e#15741#15764#0" expanded="false" />
-            <element signature="e#19787#20135#0" expanded="false" />
+            <element signature="e#19804#19851#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/signal_center.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10">
+          <caret line="40" column="14" lean-forward="true" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
+          <folding>
+            <element signature="e#111#146#0" expanded="false" />
+            <element signature="e#1857#1872#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plane2/plane.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="112" column="29" lean-forward="false" selection-start-line="112" selection-start-column="29" selection-end-line="112" selection-end-column="29" />
+          <folding>
+            <element signature="e#20#55#0" expanded="true" />
+            <element signature="e#7865#8088#0" expanded="false" />
+            <element signature="e#8128#8188#0" expanded="false" />
+            <element signature="e#8226#8480#0" expanded="false" />
+            <element signature="e#8541#8720#0" expanded="false" />
+            <element signature="e#8759#8934#0" expanded="false" />
           </folding>
         </state>
       </provider>

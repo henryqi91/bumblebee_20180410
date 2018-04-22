@@ -110,7 +110,7 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
         self.bullet_height = 21
 
         self.enemy_speed = signal_center.enemy_speed
-        self.player_speed = 20
+        self.player_speed = 8
         self.bullet_speed = 50
 
         self.is_game_over = False
@@ -124,7 +124,7 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
         pygame.init()
         self.screen = pygame.display.set_mode((self.SCREEN_WIDTH, self.SCREEN_HEIGHT))
         self.background = pygame.image.load('plane/resources/image/background_large.png').convert()
-        self.game_over = pygame.image.load('plane/resources/image/gameover_large.png')
+        self.game_over = pygame.image.load('plane/resources/image/gameover.png')
         self.plane_img = pygame.image.load('plane/resources/image/shoot.png')
         # self.obstacle_img = pygame.image.load('plane/resources/image/rock_small.png').convert()
         # print (self.obstacle_img)
@@ -138,11 +138,11 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
         self.ref_width = 102  #N/A
         self.ref_height = 126
         self.player_rect.append(pygame.Rect(0, 99, self.ref_width, self.ref_height))  # 玩家飞机图片
-        # self.player_rect.append(pygame.Rect(165, 360, self.ref_width, self.ref_height))
-        # self.player_rect.append(pygame.Rect(165, 234, self.ref_width, self.ref_height))  # 玩家爆炸图片
-        # self.player_rect.append(pygame.Rect(330, 624, self.ref_width, self.ref_height))
-        # self.player_rect.append(pygame.Rect(330, 498, self.ref_width, self.ref_height))
-        # self.player_rect.append(pygame.Rect(432, 624, self.ref_width, self.ref_height))
+        self.player_rect.append(pygame.Rect(165, 360, self.ref_width, self.ref_height))
+        self.player_rect.append(pygame.Rect(165, 234, self.ref_width, self.ref_height))  # 玩家爆炸图片
+        self.player_rect.append(pygame.Rect(330, 624, self.ref_width, self.ref_height))
+        self.player_rect.append(pygame.Rect(330, 498, self.ref_width, self.ref_height))
+        self.player_rect.append(pygame.Rect(432, 624, self.ref_width, self.ref_height))
         self.player_pos = [int(self.SCREEN_WIDTH/2), self.player_pos_y]
         self.player = Player(self.plane_img, self.player_rect, self.player_pos,
                              SCREEN_HEIGHT=self.SCREEN_HEIGHT, SCREEN_WIDTH=self.SCREEN_WIDTH,
@@ -158,10 +158,10 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
         self.enemy1_rect = pygame.Rect(534, 612, self.enemy_width, self.enemy_height)
         self.enemy1_img = self.plane_img.subsurface(self.enemy1_rect)
         self.enemy1_down_imgs = []
-        # self.enemy1_down_imgs.append(self.plane_img.subsurface(pygame.Rect(267, 347, self.enemy_width, self.enemy_height)))
-        # self.enemy1_down_imgs.append(self.plane_img.subsurface(pygame.Rect(873, 697, self.enemy_width, self.enemy_height)))
-        # self.enemy1_down_imgs.append(self.plane_img.subsurface(pygame.Rect(267, 296, self.enemy_width, self.enemy_height)))
-        # self.enemy1_down_imgs.append(self.plane_img.subsurface(pygame.Rect(930, 697, self.enemy_width, self.enemy_height)))
+        self.enemy1_down_imgs.append(self.plane_img.subsurface(pygame.Rect(267, 347, self.enemy_width, self.enemy_height)))
+        self.enemy1_down_imgs.append(self.plane_img.subsurface(pygame.Rect(873, 697, self.enemy_width, self.enemy_height)))
+        self.enemy1_down_imgs.append(self.plane_img.subsurface(pygame.Rect(267, 296, self.enemy_width, self.enemy_height)))
+        self.enemy1_down_imgs.append(self.plane_img.subsurface(pygame.Rect(930, 697, self.enemy_width, self.enemy_height)))
 
         # 存储敌机，管理多个对象
         self.enemies1 = pygame.sprite.Group()
@@ -195,8 +195,6 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
         # 存储被击毁的飞机，用来渲染击毁动画
         self.enemies_down = pygame.sprite.Group()
 
-        # 设置玩家飞机不同状态的图片列表，多张图片展示为动画效果
-
         # 玩家飞机被击中后的效果处理
         self.player_down_index = 16
         self.player.is_hit = False
@@ -209,8 +207,6 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
         signal_center.score = 0
         self.player_life = 2
 
-        # 游戏循环帧率设置
-        # self.clock = pygame.time.Clock()
         # 判断游戏是否暂停的参数
         self.is_running = signal_center.is_running
         self.player.speed = self.player_speed
@@ -268,7 +264,7 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
                 # self.is_keyboard = signal_center.is_keyboard
                 # enemy_selection = 1
                 # if enemy_selection == 1:
-                # self.enemy1_img = self.plane_img.subsurface(self.enemy1_rect)
+                self.enemy1_img = self.plane_img.subsurface(self.enemy1_rect)
                 # elif enemy_selection == 2:
                 #     self.enemy1_img = self.obstacle_img
 
@@ -290,14 +286,12 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
                             enemy1 = Enemy(self.enemy1_img, self.enemy1_down_imgs, enemy1_pos)
                             self.enemies1.add(enemy1)
                     self.enemy_frequency += 1
-                    if self.enemy_frequency >= signal_center.plane_appear_freq:
+                    if self.enemy_frequency >= signal_center.plane_appear_freq*2:
                         self.enemy_frequency = 0
 
                     for bullet in self.player.bullets:
                         # 以固定速度移动子弹
-                        # if len(self.enemies1) > 0:
                         bullet.move()
-                        pygame.display.update()
                         # 移动出屏幕后删除子弹
                         if bullet.rect.bottom < 0:
                             self.player.bullets.remove(bullet)
@@ -323,10 +317,7 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
                     enemies1_down = pygame.sprite.groupcollide(self.enemies1, self.player.bullets, 1, 1)
                     for enemy_down in enemies1_down:
                         signal_center.score += 10
-                        # 绘制背景
-                        self.screen.fill(0)
-                        self.screen.blit(self.background, (0, 0))
-                        # self.enemies_down.add(enemy_down)
+                        self.enemies_down.add(enemy_down)
 
                     # 绘制背景
                     self.screen.fill(0)
@@ -338,7 +329,7 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
                         self.screen.blit(self.player.image[self.player.img_index],
                                          self.player.rect)
                         # 更换图片索引使飞机有动画效果
-                        # self.player.img_index = self.shoot_frequency // 8
+                        self.player.img_index = self.shoot_frequency // 8
                         pass
                     else:
                         # 玩家飞机被击中后的效果处理
@@ -355,20 +346,22 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
                             self.player.is_hit = False
                             self.player.img_index = 0
                             self.player_down_index = 16
-                        # self.player_down_index += 1
-                        # if self.player_down_index > 47:
-                        # #     #击中效果处理完成后游戏结束
-                        self.is_running = False
 
-                    # for enemy_down in self.enemies_down:
-                    #     if enemy_down.down_index == 0:
-                    #         pass
-                    #     if enemy_down.down_index > 7:
-                    #         self.enemies_down.remove(enemy_down)
-                    #         self.score += 10
-                    #         continue
-                    #     self.screen.blit(enemy_down.down_imgs[enemy_down.down_index // 2], enemy_down.rect)
-                    #     enemy_down.down_index += 1
+                        self.player_down_index += 1
+                        if self.player_down_index > 47:
+                            #击中效果处理完成后游戏结束
+                            self.is_running = False
+
+                    for enemy_down in self.enemies_down:
+                        if enemy_down.down_index == 0:
+                            pass
+                        if enemy_down.down_index > 7:
+                            self.enemies_down.remove(enemy_down)
+                            self.score += 10
+                            continue
+                        self.screen.blit(enemy_down.down_imgs[enemy_down.down_index // 2], enemy_down.rect)
+                        enemy_down.down_index += 1
+
                     #显示子弹
                     self.player.bullets.draw(self.screen)
 
@@ -418,12 +411,4 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
                 self.screen.blit(self.game_over, (0, 0))
                 self.screen.blit(text, text_rect)
 
-            # pygame.display.update()
-
-                #显示得分并处理游戏退出
-                while 1:
-                    for event in pygame.event.get():
-                        if event.type == pygame.QUIT:
-                            pygame.quit()
-                            exit()
-                        pygame.display.update()
+            pygame.display.update()
