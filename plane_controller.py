@@ -69,12 +69,11 @@ class MainWindow(QMainWindow):
         # self.game_thread.finished.connect(self.game_thread.deleteLater)
         # self.plane_game.moveToThread(self.game_thread)
         # self.game_thread.start()
-        # _thread.start_new_thread(self.plane_game.run_game,(self.signal_center,)) # start the game thread
-        # self.p_game = Process(target=self.plane_game.run_game,args=())
-
-        # start the movingInstance thread
+        _thread.start_new_thread(self.plane_game.run_game,(self.signal_center,)) # start the game thread
+        #
         self.labview_reader = LvReader(signal_center=self.signal_center)
-        # self.moving_thread = QThread()
+        # start the movingInstance thread
+        #  self.moving_thread = QThread()
         # self.moving_thread.started.connect(self.movingInstance.torque_update)
         # self.moving_thread.finished.connect(self.moving_thread.deleteLater)
         # self.movingInstance.moveToThread(self.moving_thread)
@@ -84,8 +83,8 @@ class MainWindow(QMainWindow):
 
         #TIMERS
         self.timer_clock = QTimer()
-        self.timer_record = QTimer()
-        self.timer_game = QTimer()
+        # self.timer_record = QTimer()
+        # self.timer_game = QTimer()
         # self.timer_lv_reader = QTimer()
 
         # self.time_temp = 0
@@ -94,8 +93,8 @@ class MainWindow(QMainWindow):
         self.signal_center.is_recording = False
 
         self.timer_clock.timeout.connect(self.run_timer)
-        self.timer_record.timeout.connect(self.record_data)
-        self.timer_game.timeout.connect(self.run_game)
+        # self.timer_record.timeout.connect(self.record_data)
+        # self.timer_game.timeout.connect(self.run_game)
         # self.timer_lv_reader.timeout.connect(self.lv_reader)
         # self.timer_lv_reader.start(0.01)
 
@@ -141,7 +140,7 @@ class MainWindow(QMainWindow):
     def lv_reader(self):
         self.labview_reader.torque_update(signal_center=self.signal_center)
         pass
-
+    #
     def _action_single_screen(self,angle_speed,direction):
         if direction == "left" or direction =="right":
             self._sender.send("params", 1, "hDirection", direction)
@@ -154,20 +153,15 @@ class MainWindow(QMainWindow):
 
     @pyqtSlot()
     def on_manual_start_clicked(self):
-        # self.player = self.plane_game.player
         self.signal_center.enemy_speed = self.ui.obst_fall_speed_spinbox.value()
         self.signal_center.is_running = True  #This line starts the game
         self.signal_center.is_recording = False
 
         self.signal_center.obst_fall_speed = self.ui.obst_fall_speed_spinbox.value()
         self.signal_center.freq = self.ui.obst_freq_spinbox.value()
-        # start the processes:
-        # game-related:
-        # self.plane_game = plane.PlaneGame(signal_center=self.signal_center)
-        # self.plane_game.plane_game_init(signal_center=self.signal_center)
+
         self.signal_center.is_keyboard = False  # whether to control via keyboard
         self.timer_clock.start(1000)
-        # self.timer_game.start(1)
 
         # #update the buttons
         self.ui.manual_start.setEnabled(False)
@@ -314,8 +308,14 @@ class MainWindow(QMainWindow):
 
     @pyqtSlot()
     def on_obst_freq_spinbox_editing_finished(self):
-        value = self.ui.obst_freq_spinbox.value()
-        self.signal_center.plane_appear_freq = value
+        self.signal_center.plane_appear_freq = \
+            self.ui.obst_freq_spinbox.value()
+
+    @pyqtSlot()
+    def on_obst_fall_speed_spinbox_editing_finished(self):
+        self.signal_center.plane_appear_freq = \
+            self.ui.obst_fall_speed_spinbox.value()
+
 
     @pyqtSlot()
     def on_data_record_interval_spinbox_editing_finished(self):
@@ -357,7 +357,6 @@ class MainWindow(QMainWindow):
             pass
 
 
-
 class LvReader(QObject):
     torque_value_signal = pyqtSignal(str)
     def __init__(self,signal_center):
@@ -367,19 +366,20 @@ class LvReader(QObject):
 
     # update plane's coordinate w.r.t the torque's voltage
     def torque_update(self,signal_center):
-        screen_width = signal_center.SCREEN_WIDTH
-        # while signal_center.is_torque_update:
-        data_num = signal_center.data_num
-        data = self.reader.get_slide_num_data(data_num,40)
-        data_avg = np.average(data)  # cal their average
-        signal_center.torque_value = str(data_avg)
-        data_para = data_avg / signal_center.parameter_div  # divided by the parameter(5 in this case)
+        while True:
+            screen_width = signal_center.SCREEN_WIDTH
+            # while signal_center.is_torque_update:
+            data_num = signal_center.data_num
+            data = self.reader.get_slide_num_data(data_num,40)
+            data_avg = np.average(data)  # cal their average
+            signal_center.torque_value = str(data_avg)
+            data_para = data_avg / signal_center.parameter_div  # divided by the parameter(5 in this case)
 
-        self.torque_value_signal.emit(str(data_avg))
-        # map the data onto the coordinate
-        data_mapped = data_para * signal_center.x_coord_factor
-        data_mapped += int(screen_width / 2)
-        signal_center.player_x = data_mapped
+            self.torque_value_signal.emit(str(data_avg))
+            # map the data onto the coordinate
+            data_mapped = data_para * signal_center.x_coord_factor
+            data_mapped += int(screen_width / 2)
+            signal_center.player_x = data_mapped
         # print (data_mapped)
 
 # class Timer(QThread):

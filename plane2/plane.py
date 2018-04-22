@@ -101,7 +101,7 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
         super(PlaneGame, self).__init__()
         self.SCREEN_WIDTH = signal_center.SCREEN_WIDTH # ori: 480
         self.SCREEN_HEIGHT = signal_center.SCREEN_HEIGHT
-        self.is_keyboard = signal_center.is_keyboard
+        # self.is_keyboard = signal_center.is_keyboard
         self.player_pos_y = int(self.SCREEN_HEIGHT*18/20)
 
         self.player_width = 50
@@ -138,11 +138,11 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
         self.ref_width = 102  #N/A
         self.ref_height = 126
         self.player_rect.append(pygame.Rect(0, 99, self.ref_width, self.ref_height))  # 玩家飞机图片
-        self.player_rect.append(pygame.Rect(165, 360, self.ref_width, self.ref_height))
-        self.player_rect.append(pygame.Rect(165, 234, self.ref_width, self.ref_height))  # 玩家爆炸图片
-        self.player_rect.append(pygame.Rect(330, 624, self.ref_width, self.ref_height))
-        self.player_rect.append(pygame.Rect(330, 498, self.ref_width, self.ref_height))
-        self.player_rect.append(pygame.Rect(432, 624, self.ref_width, self.ref_height))
+        # self.player_rect.append(pygame.Rect(165, 360, self.ref_width, self.ref_height))
+        # self.player_rect.append(pygame.Rect(165, 234, self.ref_width, self.ref_height))  # 玩家爆炸图片
+        # self.player_rect.append(pygame.Rect(330, 624, self.ref_width, self.ref_height))
+        # self.player_rect.append(pygame.Rect(330, 498, self.ref_width, self.ref_height))
+        # self.player_rect.append(pygame.Rect(432, 624, self.ref_width, self.ref_height))
         self.player_pos = [int(self.SCREEN_WIDTH/2), self.player_pos_y]
         self.player = Player(self.plane_img, self.player_rect, self.player_pos,
                              SCREEN_HEIGHT=self.SCREEN_HEIGHT, SCREEN_WIDTH=self.SCREEN_WIDTH,
@@ -158,10 +158,10 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
         self.enemy1_rect = pygame.Rect(534, 612, self.enemy_width, self.enemy_height)
         self.enemy1_img = self.plane_img.subsurface(self.enemy1_rect)
         self.enemy1_down_imgs = []
-        self.enemy1_down_imgs.append(self.plane_img.subsurface(pygame.Rect(267, 347, self.enemy_width, self.enemy_height)))
-        self.enemy1_down_imgs.append(self.plane_img.subsurface(pygame.Rect(873, 697, self.enemy_width, self.enemy_height)))
-        self.enemy1_down_imgs.append(self.plane_img.subsurface(pygame.Rect(267, 296, self.enemy_width, self.enemy_height)))
-        self.enemy1_down_imgs.append(self.plane_img.subsurface(pygame.Rect(930, 697, self.enemy_width, self.enemy_height)))
+        # self.enemy1_down_imgs.append(self.plane_img.subsurface(pygame.Rect(267, 347, self.enemy_width, self.enemy_height)))
+        # self.enemy1_down_imgs.append(self.plane_img.subsurface(pygame.Rect(873, 697, self.enemy_width, self.enemy_height)))
+        # self.enemy1_down_imgs.append(self.plane_img.subsurface(pygame.Rect(267, 296, self.enemy_width, self.enemy_height)))
+        # self.enemy1_down_imgs.append(self.plane_img.subsurface(pygame.Rect(930, 697, self.enemy_width, self.enemy_height)))
 
         # 存储敌机，管理多个对象
         self.enemies1 = pygame.sprite.Group()
@@ -189,45 +189,6 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
 
     def reset_game(self,signal_center):
 
-        # 设置玩家飞机不同状态的图片列表，多张图片展示为动画效果
-        self.player_rect = []
-        self.ref_width = 102  # N/A
-        self.ref_height = 126
-        self.player_rect.append(pygame.Rect(0, 99, self.ref_width, self.ref_height))  # 玩家飞机图片
-        # self.player_rect.append(pygame.Rect(165, 360, self.player_width, self.player_height))
-
-        self.player_rect.append(pygame.Rect(165, 234, self.ref_width, self.ref_height))  # 玩家爆炸图片
-        self.player_rect.append(pygame.Rect(330, 624, self.ref_width, self.ref_height))
-        self.player_rect.append(pygame.Rect(330, 498, self.ref_width, self.ref_height))
-        self.player_rect.append(pygame.Rect(432, 624, self.ref_width, self.ref_height))
-        self.player_pos = [int(self.SCREEN_WIDTH / 2), self.player_pos_y]
-
-        # for i in range(len(self.player_rect)):
-        #     self.player_rect[i].inflate(-int(self.SCREEN_WIDTH / 50), -int(self.SCREEN_HEIGHT/100))
-
-        self.player = Player(self.plane_img, self.player_rect, self.player_pos,
-                             SCREEN_HEIGHT=self.SCREEN_HEIGHT, SCREEN_WIDTH=self.SCREEN_WIDTH,
-                             plane_width=self.player_width, plane_height=self.player_height)
-
-        # 子弹图片
-        self.bullet_rect = pygame.Rect(1004, 987, self.bullet_width, self.bullet_height)
-        self.bullet_img = self.plane_img.subsurface(self.bullet_rect)
-
-        # 敌机不同状态的图片列表，多张图片展示为动画效果
-        self.enemy_width = 57
-        self.enemy_height = 43
-        self.enemy1_rect = pygame.Rect(534, 612, self.enemy_width, self.enemy_height)
-        self.enemy1_img = self.plane_img.subsurface(self.enemy1_rect)
-        self.enemy1_down_imgs = []
-        self.enemy1_down_imgs.append(
-            self.plane_img.subsurface(pygame.Rect(267, 347, self.enemy_width, self.enemy_height)))
-        self.enemy1_down_imgs.append(
-            self.plane_img.subsurface(pygame.Rect(873, 697, self.enemy_width, self.enemy_height)))
-        self.enemy1_down_imgs.append(
-            self.plane_img.subsurface(pygame.Rect(267, 296, self.enemy_width, self.enemy_height)))
-        self.enemy1_down_imgs.append(
-            self.plane_img.subsurface(pygame.Rect(930, 697, self.enemy_width, self.enemy_height)))
-
         # 存储敌机，管理多个对象
         self.enemies1 = pygame.sprite.Group()
 
@@ -236,13 +197,13 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
 
         # 设置玩家飞机不同状态的图片列表，多张图片展示为动画效果
 
+        # 玩家飞机被击中后的效果处理
+        self.player_down_index = 16
+        self.player.is_hit = False
 
         # 初始化射击及敌机移动频率
         self.shoot_frequency = 0
         self.enemy_frequency = 0
-
-        # 玩家飞机被击中后的效果处理
-        self.player_down_index = 16
 
         # 初始化分数
         signal_center.score = 0
@@ -254,6 +215,7 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
         self.is_running = signal_center.is_running
         self.player.speed = self.player_speed
         self.is_game_over = False
+
 
     def get_enemy_coord(self):
         enemies_x = []
@@ -294,27 +256,21 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
 
     def run_game(self,signal_center):
 
-        # while True:
+        while True:
             # 控制游戏最大帧率
             self.clock.tick(60)
-
-            # 处理游戏退出
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                    exit()
 
             if not self.is_game_over:
                 # self.is_running = signal_center.is_running
                 # self.freq = signal_center.plane_appear_freq
                 self.is_running = signal_center.is_running
                 self.score = signal_center.score
-                self.is_keyboard = signal_center.is_keyboard
-                enemy_selection = 1
-                if enemy_selection == 1:
-                    self.enemy1_img = self.plane_img.subsurface(self.enemy1_rect)
-                elif enemy_selection == 2:
-                    self.enemy1_img = self.obstacle_img
+                # self.is_keyboard = signal_center.is_keyboard
+                # enemy_selection = 1
+                # if enemy_selection == 1:
+                # self.enemy1_img = self.plane_img.subsurface(self.enemy1_rect)
+                # elif enemy_selection == 2:
+                #     self.enemy1_img = self.obstacle_img
 
                 # 生成子弹，需要控制发射频率
                 if self.is_running:
@@ -322,66 +278,59 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
                     if not self.player.is_hit:
                         if self.shoot_frequency % 15 == 0: #15
                             self.player.shoot(self.bullet_img)
-                            pass
                         self.shoot_frequency += 1
                         if self.shoot_frequency >= 15: #15
                             self.shoot_frequency = 0
+
                     # 生成敌机，需要控制生成频率
                     if self.enemy_frequency % signal_center.plane_appear_freq == 0:
-                        enemy1_pos = [random.randint(0, self.SCREEN_WIDTH - self.enemy1_rect.width), 0]
-                        # enemy_selection = random.randint(1,2) # 1-plane, 2-rock
-                        enemy1 = Enemy(self.enemy1_img, self.enemy1_down_imgs, enemy1_pos)
-                        self.enemies1.add(enemy1)
+                        if len(self.enemies1) < 5:
+                            enemy1_pos = [random.randint(0, self.SCREEN_WIDTH - self.enemy1_rect.width), 0]
+                            # enemy_selection = random.randint(1,2) # 1-plane, 2-rock
+                            enemy1 = Enemy(self.enemy1_img, self.enemy1_down_imgs, enemy1_pos)
+                            self.enemies1.add(enemy1)
                     self.enemy_frequency += 1
                     if self.enemy_frequency >= signal_center.plane_appear_freq:
                         self.enemy_frequency = 0
 
-                for bullet in self.player.bullets:
-                    # 以固定速度移动子弹
-                    bullet.move()
-                    # 移动出屏幕后删除子弹
-                    if bullet.rect.bottom < 0:
-                        self.player.bullets.remove(bullet)
+                    for bullet in self.player.bullets:
+                        # 以固定速度移动子弹
+                        # if len(self.enemies1) > 0:
+                        bullet.move()
+                        pygame.display.update()
+                        # 移动出屏幕后删除子弹
+                        if bullet.rect.bottom < 0:
+                            self.player.bullets.remove(bullet)
 
-                for enemy in self.enemies1:
-                    # 如果游戏暂停，则敌机不动
-                    if not self.is_running:
-                        pass
-                    else:
-                        enemy.speed = signal_center.obst_fall_speed
-                        # 2. 移动敌机
-                        enemy.move()
-                    # 3. 敌机与玩家飞机碰撞效果处理
-                    if pygame.sprite.collide_rect_ratio(1)(enemy, self.player):
-                        # self.enemies_down.add(enemy)
-                        self.enemies1.remove(enemy)
-                        self.player.is_hit = True
-                        # self.is_game_over = True
-                        break
-                    if enemy.rect.top < 0:
-                        self.enemies1.remove(enemy)
+                    for enemy in self.enemies1:
+                        # 如果游戏暂停，则敌机不动
+                        if self.is_running:
+                            enemy.speed = signal_center.obst_fall_speed
+                            # 2. 移动敌机
+                            enemy.move()
+                        # 3. 敌机与玩家飞机碰撞效果处理
+                        if pygame.sprite.collide_rect_ratio(1)(enemy, self.player):
+                            self.enemies_down.add(enemy)
+                            self.enemies1.remove(enemy)
+                            self.player.is_hit = True
+                            # self.is_game_over = True
+                            break
+                        if enemy.rect.top > self.SCREEN_HEIGHT:
+                            self.enemies1.remove(enemy)
 
                     # 敌机被子弹击中效果处理
                     # 将被击中的敌机对象添加到击毁敌机Group中，用来渲染击毁动画
                     enemies1_down = pygame.sprite.groupcollide(self.enemies1, self.player.bullets, 1, 1)
                     for enemy_down in enemies1_down:
                         signal_center.score += 10
-                        self.enemies_down.add(enemy_down)
+                        # 绘制背景
+                        self.screen.fill(0)
+                        self.screen.blit(self.background, (0, 0))
+                        # self.enemies_down.add(enemy_down)
 
+                    # 绘制背景
                     self.screen.fill(0)
-                    self.screen.blit(self.background, (0,0))
-
-
-                    # # #飞机成功躲过敌机加分:
-                    # # # for enemy in self.enemies1:
-                    # # enemy_y = enemy.rect.center[1]
-                    # # if enemy_y > self.SCREEN_HEIGHT:
-                    # #     # signal_center.score += 10
-                    # #     self.enemies1.remove(enemy)
-                    #
-                    # # 绘制背景
-                    # self.screen.fill(0)
-                    # self.screen.blit(self.background, (0, 0))
+                    self.screen.blit(self.background, (0, 0))
 
                 if self.is_running:
                     # 绘制玩家飞机
@@ -389,7 +338,8 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
                         self.screen.blit(self.player.image[self.player.img_index],
                                          self.player.rect)
                         # 更换图片索引使飞机有动画效果
-                        self.player.img_index = self.shoot_frequency // 8
+                        # self.player.img_index = self.shoot_frequency // 8
+                        pass
                     else:
                         # 玩家飞机被击中后的效果处理
                         self.player.is_hit = False
@@ -400,26 +350,25 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
                             self.player_life -= 1
                             self.is_game_over = True
                             self.is_running = False
-
                         else:
                             self.player_life -= 1
                             self.player.is_hit = False
                             self.player.img_index = 0
                             self.player_down_index = 16
-                        self.player_down_index += 1
-                        if self.player_down_index > 47:
-                        #     #击中效果处理完成后游戏结束
-                            self.is_running = False
+                        # self.player_down_index += 1
+                        # if self.player_down_index > 47:
+                        # #     #击中效果处理完成后游戏结束
+                        self.is_running = False
 
-                    for enemy_down in self.enemies_down:
-                        if enemy_down.down_index == 0:
-                            pass
-                        if enemy_down.down_index > 7:
-                            self.enemies_down.remove(enemy_down)
-                            self.score += 10
-                            continue
-                        self.screen.blit(enemy_down.down_imgs[enemy_down.down_index // 2], enemy_down.rect)
-                        enemy_down.down_index += 1
+                    # for enemy_down in self.enemies_down:
+                    #     if enemy_down.down_index == 0:
+                    #         pass
+                    #     if enemy_down.down_index > 7:
+                    #         self.enemies_down.remove(enemy_down)
+                    #         self.score += 10
+                    #         continue
+                    #     self.screen.blit(enemy_down.down_imgs[enemy_down.down_index // 2], enemy_down.rect)
+                    #     enemy_down.down_index += 1
                     #显示子弹
                     self.player.bullets.draw(self.screen)
 
@@ -438,29 +387,26 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
 
                     pygame.display.update()
 
-                        # 处理游戏退出
+                    # 处理游戏退出
                     for event in pygame.event.get():
                         if event.type == pygame.QUIT:
                             pygame.quit()
                             exit()
 
-                    # 判断控制方法，如果是is_keyboard = True则键盘控制；否则就扭矩仪电压控制
-                    # if self.is_keyboard:
-                    # self.player.speed = 7
-                    # # 获取键盘事件（上下左右按键）
-                    # key_pressed = pygame.key.get_pressed()
-                    # # 处理键盘事件（移动飞机的位置）
-                    # if key_pressed[K_w] or key_pressed[K_UP]:
-                    #     self.player.moveUp()
-                    # if key_pressed[K_s] or key_pressed[K_DOWN]:
-                    #     self.player.moveDown()
-                    # if key_pressed[K_a] or key_pressed[K_LEFT]:
-                    #     self.player.moveLeft()
-                    # if key_pressed[K_d] or key_pressed[K_RIGHT]:
-                    #     self.player.moveRight()
+                    # 获取键盘事件（上下左右按键）
+                    key_pressed = pygame.key.get_pressed()
+                    # 处理键盘事件（移动飞机的位置）
+                    if key_pressed[K_w] or key_pressed[K_UP]:
+                        self.player.moveUp()
+                    if key_pressed[K_s] or key_pressed[K_DOWN]:
+                        self.player.moveDown()
+                    if key_pressed[K_a] or key_pressed[K_LEFT]:
+                        self.player.moveLeft()
+                    if key_pressed[K_d] or key_pressed[K_RIGHT]:
+                        self.player.moveRight()
                 # else:
-                    self.set_player_x(signal_center.player_x)
-                    pygame.display.update()
+                #     self.set_player_x(signal_center.player_x)
+                #     pygame.display.update()
 
             if self.is_game_over:
                 # 游戏 Game Over 后显示最终得分
@@ -474,10 +420,10 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
 
             # pygame.display.update()
 
-            # #显示得分并处理游戏退出
-            # while 1:
-            #     for event in pygame.event.get():
-            #         if event.type == pygame.QUIT:
-            #             pygame.quit()
-            #             exit()
-            #         pygame.display.update()
+                #显示得分并处理游戏退出
+                while 1:
+                    for event in pygame.event.get():
+                        if event.type == pygame.QUIT:
+                            pygame.quit()
+                            exit()
+                        pygame.display.update()
