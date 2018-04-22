@@ -244,11 +244,13 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
         self.screen.blit(text, rect)
 
     def get_closest_x(self):
-        closest_x = 1000
+        closest_enemy = None
+        closest_y = 5000
         for enemy in self.enemies1:
-            if enemy.rect.center[0] < closest_x:
-                closest_x = enemy.rect.center[0]
-        return closest_x
+            if enemy.rect.center[1] < closest_y:
+                closest_enemy = enemy
+                closest_y = enemy.rect.center[1]
+        return closest_enemy.rect.center[0]
 
     def run_game(self,signal_center):
 
@@ -397,9 +399,10 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
                         self.player.moveLeft()
                     if key_pressed[K_d] or key_pressed[K_RIGHT]:
                         self.player.moveRight()
-                # else:
-                #     self.set_player_x(signal_center.player_x)
-                #     pygame.display.update()
+
+                    #扭矩仪控制
+                    self.set_player_x(signal_center.player_x)
+                    pygame.display.update()
 
             if self.is_game_over:
                 # 游戏 Game Over 后显示最终得分

@@ -54,6 +54,8 @@ class MainWindow(QMainWindow):
         self.ui.manual_start.setEnabled(True)
         self.ui.manual_pause.setEnabled(False)
         self.ui.manual_reset.setEnabled(False)
+        self.ui.RL_test.setEnabled(False)
+        self.ui.AI_mode.setText("人工控制")
 
         # init the signals exchanging center:
         self.signal_center = SignalCenter()
@@ -83,7 +85,8 @@ class MainWindow(QMainWindow):
 
         #TIMERS
         self.timer_clock = QTimer()
-        # self.timer_record = QTimer()
+        self.timer_record = QTimer()
+        self.timer_rule_algo = QTimer()
         # self.timer_game = QTimer()
         # self.timer_lv_reader = QTimer()
 
@@ -91,9 +94,11 @@ class MainWindow(QMainWindow):
         self.time_count = 0
         self.data = []
         self.signal_center.is_recording = False
+        self.x_intervals = [83, 166, 249, 332, 415, 498, 581, 666]
 
         self.timer_clock.timeout.connect(self.run_timer)
-        # self.timer_record.timeout.connect(self.record_data)
+        self.timer_record.timeout.connect(self.record_data)
+        self.timer_rule_algo.timeout.connect(self.rule_algo)
         # self.timer_game.timeout.connect(self.run_game)
         # self.timer_lv_reader.timeout.connect(self.lv_reader)
         # self.timer_lv_reader.start(0.01)
@@ -133,14 +138,45 @@ class MainWindow(QMainWindow):
             df.to_csv(file_name)
             self.signal_center.to_save = False
         pass
-
-    def run_game(self):
-        self.plane_game.run_game(self.signal_center)
-
-    def lv_reader(self):
-        self.labview_reader.torque_update(signal_center=self.signal_center)
-        pass
     #
+    # def run_game(self):
+    #     self.plane_game.run_game(self.signal_center)
+    #
+    # def lv_reader(self):
+    #     self.labview_reader.torque_update(signal_center=self.signal_center)
+    #     pass
+    # #
+    def rule_algo(self):
+        if self.is_rule == True:
+            closest_x = self.plane_game.get_closest_x()
+            if closest_x <  self.x_intervals[0]:
+                self._action_single_screen(70, "left")
+                self.ui.AI_mode.setText("70 左")
+            elif closest_x <  self.x_intervals[1]:
+                self._action_single_screen(50, "left")
+                self.ui.AI_mode.setText("50 左")
+            elif closest_x <  self.x_intervals[2]:
+                self._action_single_screen(30, "left")
+                self.ui.AI_mode.setText("30 左")
+            elif closest_x <  self.x_intervals[3]:
+                self._action_single_screen(10, "left")
+                self.ui.AI_mode.setText("10 左")
+            elif closest_x <  self.x_intervals[4]:
+                self._action_single_screen(10, "right")
+                self.ui.AI_mode.setText("10 右")
+            elif closest_x <  self.x_intervals[5]:
+                self._action_single_screen(30, "right")
+                self.ui.AI_mode.setText("30 右")
+            elif closest_x <  self.x_intervals[6]:
+                self._action_single_screen(50, "right")
+                self.ui.AI_mode.setText("50 右")
+            elif closest_x <  self.x_intervals[7]:
+                self._action_single_screen(70, "right")
+                self.ui.AI_mode.setText("70 右")
+            else:
+                self._action_single_screen(0, "right")
+                self.ui.AI_mode.setText("不给予光流")
+
     def _action_single_screen(self,angle_speed,direction):
         if direction == "left" or direction =="right":
             self._sender.send("params", 1, "hDirection", direction)
@@ -316,7 +352,6 @@ class MainWindow(QMainWindow):
         self.signal_center.plane_appear_freq = \
             self.ui.obst_fall_speed_spinbox.value()
 
-
     @pyqtSlot()
     def on_data_record_interval_spinbox_editing_finished(self):
         value = self.ui.data_record_interval_spinbox.value() / 100
@@ -327,35 +362,18 @@ class MainWindow(QMainWindow):
     def on_simple_AI_clicked(self):
         # light_intervals =   [-70,-50,-30,-10,  0,  10, 30, 50, 70]
         self.is_rule = True
-        x_intervals = [200, 300, 400, 500, 600, 700, 800, 900]
-        while self.is_rule:
-            closest_x = self.plane_game.get_closest_x()
-            if closest_x < x_intervals[0]:
-                self._action_single_screen(70,"left")
-                self.ui.AI_mode.setText("70 左")
-            elif closest_x < x_intervals[1]:
-                self._action_single_screen(50,"left")
-                self.ui.AI_mode.setText("50 左")
-            elif closest_x < x_intervals[2]:
-                self._action_single_screen(30,"left")
-                self.ui.AI_mode.setText("30 左")
-            elif closest_x < x_intervals[3]:
-                self._action_single_screen(10,"left")
-                self.ui.AI_mode.setText("10 左")
-            elif closest_x < x_intervals[4]:
-                self._action_single_screen(10,"right")
-                self.ui.AI_mode.setText("10 右")
-            elif closest_x < x_intervals[5]:
-                self._action_single_screen(30,"right")
-                self.ui.AI_mode.setText("30 右")
-            elif closest_x < x_intervals[6]:
-                self._action_single_screen(50,"right")
-                self.ui.AI_mode.setText("50 右")
-            elif closest_x < x_intervals[7]:
-                self._action_single_screen(70,"right")
-                self.ui.AI_mode.setText("70 右")
-            pass
+        self.timer_rule_algo.start(500)
+        self.ui.RL_test.setEnabled(True)
+        self.ui.simple_AI.setEnabled(False)
 
+    @pyqtSlot()
+    def on_RL_test_clicked(self):
+        self.is_rule = False
+        self.timer_rule_algo.stop()
+
+        self.ui.simple_AI.setEnabled(True)
+        self.ui.RL_test.setEnabled(False)
+        self.ui.AI_mode.setText("人工控制中")
 
 class LvReader(QObject):
     torque_value_signal = pyqtSignal(str)
