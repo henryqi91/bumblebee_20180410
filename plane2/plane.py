@@ -223,6 +223,10 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
         pass
 
     def set_player_x(self,x):
+        if x > self.SCREEN_WIDTH:
+            x = self.SCREEN_WIDTH - 50
+        if x < 0:
+            x = 50
         self.player.rect.center = (x,self.player_pos_y)
         pass
 
@@ -246,11 +250,14 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
     def get_closest_x(self):
         closest_enemy = None
         closest_y = 5000
-        for enemy in self.enemies1:
-            if enemy.rect.center[1] < closest_y:
-                closest_enemy = enemy
-                closest_y = enemy.rect.center[1]
-        return closest_enemy.rect.center[0]
+        try:
+            for enemy in self.enemies1:
+                if enemy.rect.center[1] < closest_y:
+                    closest_enemy = enemy
+                    closest_y = enemy.rect.center[1]
+            return closest_enemy.rect.center[0]
+        except:
+            return 333
 
     def run_game(self,signal_center):
 
@@ -388,19 +395,19 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
                             pygame.quit()
                             exit()
 
-                    # 获取键盘事件（上下左右按键）
-                    key_pressed = pygame.key.get_pressed()
-                    # 处理键盘事件（移动飞机的位置）
-                    if key_pressed[K_w] or key_pressed[K_UP]:
-                        self.player.moveUp()
-                    if key_pressed[K_s] or key_pressed[K_DOWN]:
-                        self.player.moveDown()
-                    if key_pressed[K_a] or key_pressed[K_LEFT]:
-                        self.player.moveLeft()
-                    if key_pressed[K_d] or key_pressed[K_RIGHT]:
-                        self.player.moveRight()
+                    # # 获取键盘事件（上下左右按键）
+                    # key_pressed = pygame.key.get_pressed()
+                    # # 处理键盘事件（移动飞机的位置）
+                    # if key_pressed[K_w] or key_pressed[K_UP]:
+                    #     self.player.moveUp()
+                    # if key_pressed[K_s] or key_pressed[K_DOWN]:
+                    #     self.player.moveDown()
+                    # if key_pressed[K_a] or key_pressed[K_LEFT]:
+                    #     self.player.moveLeft()
+                    # if key_pressed[K_d] or key_pressed[K_RIGHT]:
+                    #     self.player.moveRight()
 
-                    #扭矩仪控制
+                    # #扭矩仪控制
                     self.set_player_x(signal_center.player_x)
                     pygame.display.update()
 

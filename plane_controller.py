@@ -174,7 +174,7 @@ class MainWindow(QMainWindow):
                 self._action_single_screen(70, "right")
                 self.ui.AI_mode.setText("70 右")
             else:
-                self._action_single_screen(0, "right")
+                self._action_single_screen(5, "right")
                 self.ui.AI_mode.setText("不给予光流")
 
     def _action_single_screen(self,angle_speed,direction):
@@ -314,6 +314,7 @@ class MainWindow(QMainWindow):
         self._action_single_screen(temp, "left")
         self.left_shift_speed = temp
         self.right_shift_speed = 0
+        # self.ui.RL_left_display.setText()
 
     @pyqtSlot()
     def on_single_right_shift_clicked(self):
@@ -362,7 +363,7 @@ class MainWindow(QMainWindow):
     def on_simple_AI_clicked(self):
         # light_intervals =   [-70,-50,-30,-10,  0,  10, 30, 50, 70]
         self.is_rule = True
-        self.timer_rule_algo.start(500)
+        self.timer_rule_algo.start(2500)
         self.ui.RL_test.setEnabled(True)
         self.ui.simple_AI.setEnabled(False)
 
