@@ -118,7 +118,9 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
         self.freq = 50
 
         self.score = 0
-        self.player_life = 2
+        self.player_life = 1
+
+
 
     def plane_game_init(self,signal_center):
         pygame.init()
@@ -178,7 +180,7 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
 
         # 初始化分数
         self.score = 0
-        self.player_life = 2
+        # self.player_life = 0
 
         # 游戏循环帧率设置
         self.clock = pygame.time.Clock()
@@ -205,7 +207,7 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
 
         # 初始化分数
         signal_center.score = 0
-        self.player_life = 2
+        self.player_life = 1
 
         # 判断游戏是否暂停的参数
         self.is_running = signal_center.is_running
@@ -233,7 +235,7 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
     def getGameState(self):
         enemies_x,enemies_y = self.get_enemy_coord()
         state = {
-            "player_x": self.player.rect.center[0],
+            "player_x": round(self.player.rect.center[0],2),
             "enemies": self.enemies1,
             "enemies_x": enemies_x,
             "enemies_y": enemies_y
@@ -260,6 +262,15 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
             return 333
 
     def run_game(self,signal_center):
+        # draw region lines:
+        red_color = (255,0, 0)
+        pygame.draw.line(self.background, red_color, (107, 0), (107, 860))
+        pygame.draw.line(self.background, red_color, (215, 0), (215, 860))
+        pygame.draw.line(self.background, red_color, (323, 0), (323, 860))
+        pygame.draw.line(self.background, red_color, (537, 0), (537, 860))
+        pygame.draw.line(self.background, red_color, (645, 0), (645, 860))
+        pygame.draw.line(self.background, red_color, (753, 0), (753, 860))
+
 
         while True:
             # 控制游戏最大帧率
@@ -407,7 +418,7 @@ class PlaneGame(pygame.sprite.Sprite,QObject):
                     # if key_pressed[K_d] or key_pressed[K_RIGHT]:
                     #     self.player.moveRight()
 
-                    # #扭矩仪控制
+                    #扭矩仪控制
                     self.set_player_x(signal_center.player_x)
                     pygame.display.update()
 

@@ -22,8 +22,8 @@ class SignalCenter(QObject):
 
     def __init__(self):
         # GUI:
-        self.left_dir_speed_spinbox = 40
-        self.right_dir_speed_spinbox = 40
+        self.left_dir_speed_spinbox = 0
+        self.right_dir_speed_spinbox = 0
         self.recording_status = ""
 
         # Data-recording:
@@ -34,7 +34,7 @@ class SignalCenter(QObject):
         self.to_save = False
 
         # Game-related:
-        self.SCREEN_WIDTH = 666
+        self.SCREEN_WIDTH = 860
         self.SCREEN_HEIGHT = 860
         self.is_keyboard = True
         self.is_running = True
@@ -45,6 +45,7 @@ class SignalCenter(QObject):
         self.player_x = 0
         self.score = 0
         self.enemy_speed = 0.1
+        # self.enemy_player_x = 0
 
         # Timer
         self.is_timer_run = True

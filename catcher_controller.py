@@ -1573,7 +1573,7 @@ def run_game():
     mainWin.show()
     sys.exit(app.exec_())
 
-if __name__ == '__main__':
+# if __name__ == '__main__':
     # p1 = multiprocessing.Process(target=run_game,args=())
     # p1.start()
-    run_game()
+run_game()

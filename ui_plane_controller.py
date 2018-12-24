@@ -207,7 +207,7 @@ class Ui_MainWindow(object):
         self.data_num_display.setText(_translate("MainWindow", "实际值"))
         self.x_coord_factor_display.setText(_translate("MainWindow", "实际值"))
         self.groupBox_6.setTitle(_translate("MainWindow", "AI控制"))
-        self.simple_AI.setText(_translate("MainWindow", "规则算法"))
+        self.simple_AI.setText(_translate("MainWindow", "智能算法"))
         self.RL_train.setText(_translate("MainWindow", "RL控制"))
         self.AI_mode.setText(_translate("MainWindow", "AI模式"))
         self.RL_test.setText(_translate("MainWindow", "人工控制"))
